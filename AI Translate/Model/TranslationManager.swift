@@ -1,14 +1,20 @@
 //
-//  ViewController.swift
-//  Translate
+//  TranslationManager.swift
+//  AITranslate
 //
-//  Created by Andrea Bottino on 15/05/2023.
+//  Created by Andrea Bottino on 16/05/2023.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol TranslationManagerDelegate {
+    func showTranslation (_ translation: String)
+    func didFailWithError(_ error: Error)
+}
+
+struct TranslationManager {
     
+    var delegate: TranslationManagerDelegate?
     
     let headers = [
         "content-type": "application/json",
@@ -21,13 +27,8 @@ class ViewController: UIViewController {
         "target": "IT"
     ] as [String : Any]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    @IBAction func translatePressed(_ sender: UIButton) {
-        
+
+    func getTranslation() {
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         
@@ -45,18 +46,18 @@ class ViewController: UIViewController {
             }
             
             if let safeData = data {
-//                let httpResponse = response as? HTTPURLResponse
-//                print(httpResponse!)
-//                print(String(data: data!, encoding: .utf8)!)
-                let translation = self.parseJSON(safeData)
-                print(translation!)
-                
+                //  let httpResponse = response as? HTTPURLResponse
+                //  print(httpResponse!)
+                //  print(String(data: data!, encoding: .utf8)!)
+                let translation = parseJSON(safeData)
+                //print(translation!)
+                delegate?.showTranslation(translation!)
             }
         })
         
         dataTask.resume()
-  
     }
+    
     
     func parseJSON(_ translationData: Data) -> String? {
         
@@ -67,10 +68,10 @@ class ViewController: UIViewController {
             return text
             
         } catch {
-            //delegate?.didFailWithError(error: error)
-            print(error)
+            delegate?.didFailWithError(error)
+            //print(error)
             return nil
         }
     }
-    
 }
+

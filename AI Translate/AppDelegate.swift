@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Translate
+//  AI Translate
 //
-//  Created by Andrea Bottino on 15/05/2023.
+//  Created by Andrea Bottino on 16/05/2023.
 //
 
 import UIKit
