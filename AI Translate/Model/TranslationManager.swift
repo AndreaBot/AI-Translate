@@ -16,18 +16,30 @@ struct TranslationManager {
     
     var delegate: TranslationManagerDelegate?
     
+    
+    
+    
     let headers = [
         "content-type": "application/json",
         "X-RapidAPI-Key": "38fde48a4dmsh982cb7ed015ff93p1529c1jsned543da8ef7a",
         "X-RapidAPI-Host": "deepl-translator.p.rapidapi.com"
     ]
-    let parameters = [
-        "text": "Hi",
-        "source": "EN",
-        "target": "IT"
+    var parameters = [
+        "text": "Achtung",
+        "source": "",
+        "target": ""
     ] as [String : Any]
     
-
+    let sourceOptions = [
+        "AUTO", "BG","CS","DA","DE","EL","EN","ES","ET","FI","FR","HU","ID","IT","JA",
+"KO","LT","LV","NB","NL","PL","PT","RO","RU","SK","SL","SV","TR","UK","ZH"
+    ]
+    
+    let targetOptions = [
+        "BG","CS","DA","DE","EL","EN-GB","EN-US","ES","ET","FI","FR","HU","ID","IT","JA",
+        "KO","LT","LV","NB","NL","PL","PT-BR","PT-PT","RO","RU","SK","SL","SV","TR","UK","ZH"
+    ]
+    
     func getTranslation() {
         
         let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -44,13 +56,9 @@ struct TranslationManager {
             if (error != nil) {
                 print(error as Any)
             }
-            
             if let safeData = data {
-                //  let httpResponse = response as? HTTPURLResponse
-                //  print(httpResponse!)
-                //  print(String(data: data!, encoding: .utf8)!)
                 let translation = parseJSON(safeData)
-                //print(translation!)
+                //print(String(data: data!, encoding: .utf8)!)
                 delegate?.showTranslation(translation!)
             }
         })
@@ -69,7 +77,6 @@ struct TranslationManager {
             
         } catch {
             delegate?.didFailWithError(error)
-            //print(error)
             return nil
         }
     }
