@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TranslatorViewController: UIViewController {
     
     @IBOutlet weak var translationLabel: UILabel!
     @IBOutlet weak var sourcePicker: UIPickerView!
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
 //MARK: - TranslationManagerDelegate
 
-extension ViewController: TranslationManagerDelegate {
+extension TranslatorViewController: TranslationManagerDelegate {
     
     func showTranslation(_ translation: String) {
         DispatchQueue.main.async {
@@ -47,7 +47,7 @@ extension ViewController: TranslationManagerDelegate {
 
 //MARK: - UIPickerViewDataSource & UIPickerViewDelegate
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -80,7 +80,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
 //MARK: - UITexFiedlDelegate
     
-extension ViewController: UITextFieldDelegate {
+extension TranslatorViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textToTranslate.endEditing(true)
