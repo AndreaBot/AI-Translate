@@ -25,7 +25,7 @@ struct TranslationManager {
         "X-RapidAPI-Host": "deepl-translator.p.rapidapi.com"
     ]
     var parameters = [
-        "text": "Achtung",
+        "text": "",
         "source": "",
         "target": ""
     ] as [String : Any]
