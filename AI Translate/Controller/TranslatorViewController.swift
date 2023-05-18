@@ -12,19 +12,30 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var translationLabel: UILabel!
     @IBOutlet weak var sourcePicker: UIPickerView!
     @IBOutlet weak var targetPicker: UIPickerView!
-    @IBOutlet weak var textToTranslate: UITextField!
+    @IBOutlet weak var textToTranslate: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
     
     var translationManager = TranslationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         translationManager.delegate = self
         targetPicker.dataSource = self
         targetPicker.delegate = self
         textToTranslate.delegate = self
+
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+
+        toolbar.setItems([flexible, doneButton], animated: false)
+        textToTranslate.inputAccessoryView = toolbar
     }
+    
 }
+
 
 //MARK: - TranslationManagerDelegate
 
@@ -41,6 +52,11 @@ extension TranslatorViewController: TranslationManagerDelegate {
     }
     
     @IBAction func translatePressed(_ sender: UIButton) {
+        if textToTranslate.text != "" {
+            let text = textToTranslate.text
+            
+            translationManager.parameters["text"] = text
+        }
         translationManager.getTranslation()  
     }
 }
@@ -78,27 +94,19 @@ extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
 }
 
-//MARK: - UITexFiedlDelegate
-    
-extension TranslatorViewController: UITextFieldDelegate {
+//MARK: - UITextViewDelegate
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textToTranslate.endEditing(true)
-        return true
-    }
+extension TranslatorViewController: UITextViewDelegate {
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textToTranslate.text != "" {
-            return true
-        } else {
-            textField.placeholder = "What do you need to translate?"
-            return false
-        }
+    @objc func doneButtonTapped() {
+        textToTranslate.resignFirstResponder()
     }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        translationManager.parameters["text"] = textField.text
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        doneButtonTapped()
+        translationManager.parameters["text"] = UITextView.text
     }
 }
+
 
 

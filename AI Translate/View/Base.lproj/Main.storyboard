@@ -16,61 +16,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txg-Xa-2U6">
-                                <rect key="frame" x="33" y="605" width="290" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNF-76-FRz">
-                                <rect key="frame" x="137" y="494" width="118" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="TRANSLATE"/>
-                                <connections>
-                                    <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vsN-wi-eg9"/>
-                                </connections>
-                            </button>
-                            <pickerView tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3k-xJ-57S">
-                                <rect key="frame" x="16" y="324" width="171" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Zd7-L6-Ys9"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ta9-S1-kua"/>
-                                </connections>
-                            </pickerView>
-                            <pickerView tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZSm-Jq-ROk">
-                                <rect key="frame" x="194" y="324" width="159" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6qY-ol-ech"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UE3-bf-q4J"/>
-                                </connections>
-                            </pickerView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Do you need to translate?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ay-y8-j1G">
-                                <rect key="frame" x="46" y="180" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unY-if-NXx">
-                                <rect key="frame" x="120" y="750" width="153" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Language Codes"/>
-                                <connections>
-                                    <segue destination="emy-zq-muo" kind="presentation" id="UUK-C6-quG"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XuH-um-PIf" userLabel="Main Stack View">
+                                <rect key="frame" x="0.0" y="139" width="393" height="679"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="daW-tO-Zwo" userLabel="Top Stack View">
+                                        <rect key="frame" x="15" y="0.0" width="363" height="325.33333333333331"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" text="Wha would you like to translate?" translatesAutoresizingMaskIntoConstraints="NO" id="Te4-vG-sz3">
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="90.333333333333329"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-u3-Fkj" userLabel="Pickers Stack View">
+                                                <rect key="frame" x="0.0" y="125.33333333333331" width="363" height="200"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-1Y-FWz" userLabel="Source Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="200"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ie-7C-aNC">
+                                                                <rect key="frame" x="71" y="0.0" width="39.333333333333343" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3k-xJ-57S">
+                                                                <rect key="frame" x="0.0" y="22" width="181.66666666666666" height="178"/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Zd7-L6-Ys9"/>
+                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ta9-S1-kua"/>
+                                                                </connections>
+                                                            </pickerView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uHl-Ue-fNC" userLabel="Target Stack View">
+                                                        <rect key="frame" x="181.66666666666663" y="0.0" width="181.33333333333337" height="200"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-9m-ToR">
+                                                                <rect key="frame" x="81.333333333333343" y="0.0" width="18.333333333333329" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSm-Jq-ROk">
+                                                                <rect key="frame" x="0.0" y="22" width="181.33333333333334" height="178"/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="6qY-ol-ech"/>
+                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="UE3-bf-q4J"/>
+                                                                </connections>
+                                                            </pickerView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="4JT-VC-d1a"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNF-76-FRz">
+                                        <rect key="frame" x="137.66666666666666" y="335.33333333333331" width="117.66666666666666" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sUF-g2-4g2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="TRANSLATE"/>
+                                        <connections>
+                                            <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vsN-wi-eg9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txg-Xa-2U6">
+                                        <rect key="frame" x="15" y="395.33333333333337" width="363" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="OFc-10-UYm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unY-if-NXx">
+                                        <rect key="frame" x="120" y="605.33333333333337" width="153" height="73.666666666666629"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Language Codes"/>
+                                        <connections>
+                                            <segue destination="emy-zq-muo" kind="presentation" id="UUK-C6-quG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="daW-tO-Zwo" firstAttribute="leading" secondItem="XuH-um-PIf" secondAttribute="leading" constant="15" id="0v4-vQ-hMt"/>
+                                    <constraint firstAttribute="trailing" secondItem="daW-tO-Zwo" secondAttribute="trailing" constant="15" id="BxM-yB-1z5"/>
+                                    <constraint firstItem="Txg-Xa-2U6" firstAttribute="leading" secondItem="XuH-um-PIf" secondAttribute="leading" constant="15" id="R6t-ta-yF2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Txg-Xa-2U6" secondAttribute="trailing" constant="15" id="mCz-gg-VBE"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XuH-um-PIf" secondAttribute="trailing" id="GjH-Xf-ObS"/>
+                            <constraint firstItem="XuH-um-PIf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZRI-Hk-Gcw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XuH-um-PIf" secondAttribute="bottom" id="g2f-uh-lkq"/>
+                            <constraint firstItem="XuH-um-PIf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="iVs-N6-PLF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="sourcePicker" destination="k3k-xJ-57S" id="I2K-RC-h13"/>
                         <outlet property="targetPicker" destination="ZSm-Jq-ROk" id="BBv-bf-g2b"/>
-                        <outlet property="textToTranslate" destination="0Ay-y8-j1G" id="Mhl-Us-6bb"/>
+                        <outlet property="textToTranslate" destination="Te4-vG-sz3" id="FfZ-NJ-bbz"/>
+                        <outlet property="translateButton" destination="nNF-76-FRz" id="4rZ-TK-8jt"/>
                         <outlet property="translationLabel" destination="Txg-Xa-2U6" id="CnC-FD-xg7"/>
                     </connections>
                 </viewController>
@@ -82,28 +136,20 @@
         <scene sceneID="z4Z-oq-wGH">
             <objects>
                 <viewController id="emy-zq-muo" customClass="GuideViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Bf0-kv-XFf">
+                    <view key="view" contentMode="scaleToFill" id="Bf0-kv-XFf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FX0-as-NFA">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrU-hd-XSK">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1500"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="38" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHe-yo-gYE">
-                                                <rect key="frame" x="195" y="213" width="190" height="888"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <mutableString key="text">Target codes:
-
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="38" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHe-yo-gYE">
+                                <rect key="frame" x="36.666666666666657" y="56.666666666666686" width="320" height="669.66666666666652"/>
+                                <string key="text">AUTO - Define the language automatically
 BG - Bulgarian
 CS - Czech
 DA - Danish
 DE - German
 EL - Greek
-EN-GB - English (British)
-EN-US - English (American)
+EN-GB - British English
+EN-US - American English
 ES - Spanish
 ET - Estonian
 FI - Finnish
@@ -119,7 +165,7 @@ NB - Norwegian (Bokmål)
 NL - Dutch
 PL - Polish
 PT-BR - Portuguese (Brazilian)
-PT-PT - Portuguese (all Portuguese varieties excluding Brazilian Portuguese)
+PT-PT - Portuguese
 RO - Romanian
 RU - Russian
 SK - Slovak
@@ -128,75 +174,17 @@ SV - Swedish
 TR - Turkish
 UK - Ukrainian
 ZH - Chinese (simplified)
-</mutableString>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="35" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ8-YX-Djl">
-                                                <rect key="frame" x="25" y="279" width="162" height="697"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <string key="text">Source codes:
-
-AUTO - Define the language automatically
-BG - Bulgarian
-CS - Czech
-DA - Danish
-DE - German
-EL - Greek
-EN - English
-ES - Spanish
-ET - Estonian
-FI - Finnish
-FR - French
-HU - Hungarian
-ID - Indonesian
-IT - Italian
-JA - Japanese
-KO - Korean
-LT - Lithuanian
-LV - Latvian
-NB - Norwegian (Bokmål)
-NL - Dutch
-PL - Polish
-PT - Portuguese
-RO - Romanian
-RU - Russian
-SK - Slovak
-SL - Slovenian
-SV - Swedish
-TR - Turkish
-UK - Ukrainian
-ZH - Chinese
 </string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1000" id="h5u-l9-qek"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="mrU-hd-XSK" firstAttribute="leading" secondItem="FX0-as-NFA" secondAttribute="leading" id="Tjy-2N-epZ"/>
-                                    <constraint firstItem="mrU-hd-XSK" firstAttribute="top" secondItem="FX0-as-NFA" secondAttribute="top" id="VcN-io-qQj"/>
-                                    <constraint firstAttribute="bottom" secondItem="mrU-hd-XSK" secondAttribute="bottom" id="iK4-mA-FPj"/>
-                                    <constraint firstAttribute="trailing" secondItem="mrU-hd-XSK" secondAttribute="trailing" id="xIs-OV-Jeo"/>
-                                </constraints>
-                            </scrollView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NiR-KI-Ob0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mrU-hd-XSK" firstAttribute="height" secondItem="Bf0-kv-XFf" secondAttribute="height" multiplier="1.76056" id="DPX-O9-71b"/>
-                            <constraint firstItem="FX0-as-NFA" firstAttribute="trailing" secondItem="NiR-KI-Ob0" secondAttribute="trailing" id="KI5-aM-Orh"/>
-                            <constraint firstItem="FX0-as-NFA" firstAttribute="top" secondItem="NiR-KI-Ob0" secondAttribute="top" id="Pmh-ka-Pbv"/>
-                            <constraint firstItem="mrU-hd-XSK" firstAttribute="width" secondItem="Bf0-kv-XFf" secondAttribute="width" id="UVq-qL-k9A"/>
-                            <constraint firstAttribute="bottom" secondItem="FX0-as-NFA" secondAttribute="bottom" id="vF8-fG-fzJ"/>
-                            <constraint firstItem="FX0-as-NFA" firstAttribute="leading" secondItem="NiR-KI-Ob0" secondAttribute="leading" id="zrE-IF-DQE"/>
+                            <constraint firstItem="ZHe-yo-gYE" firstAttribute="centerX" secondItem="Bf0-kv-XFf" secondAttribute="centerX" id="RxN-QK-s7c"/>
+                            <constraint firstItem="ZHe-yo-gYE" firstAttribute="centerY" secondItem="Bf0-kv-XFf" secondAttribute="centerY" id="kIH-R8-ctT"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="393" height="852"/>
@@ -207,6 +195,9 @@ ZH - Chinese
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
