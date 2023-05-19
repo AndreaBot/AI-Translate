@@ -15,7 +15,7 @@ protocol TranslationManagerDelegate {
 struct TranslationManager {
     
     var delegate: TranslationManagerDelegate?
-
+    
     let headers = [
         "content-type": "application/json",
         "X-RapidAPI-Key": "38fde48a4dmsh982cb7ed015ff93p1529c1jsned543da8ef7a",
@@ -28,13 +28,13 @@ struct TranslationManager {
     ] as [String : Any]
     
     let sourceOptions = [
-        "Auto", "Bulgarian","Chinese","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Hungarian","Indonesia","Italian","Japanese",
-        "Korean","Latvian","Lithuanian","Norwegian (Bokmål)","Polish","Portugese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
+        "Auto", "Bulgarian","Chinese","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
     let targetOptions = [
-        "Bulgarian","Chinese","Czech","Danish","Dutch","English (British)","English (American)","German","Greek","Estonian","Finnish","French","Hungarian","Indonesia","Italian","Japanese",
-        "Korean","Latvian","Lithuanian","Norwegian (Bokmål)","Polish","Portugese (all varieties)","Portugese (Brazilian)","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
+        "Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Estonian","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Portugese (BR)","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
     func getTranslation() {
@@ -78,80 +78,81 @@ struct TranslationManager {
         }
     }
     
-    func convertLanguage(_ lang: String) -> String {
+    func convertSourceLanguage(_ lang: String) -> String {
+        
         switch lang {
-        case "Auto":
-            return "AUTO"
-        case "Bulgarian":
-            return "BG"
-        case "Czech":
-            return "CS"
-        case "Danish":
-            return "DA"
-        case "German":
-            return "DE"
-        case "Greek":
-            return "EL"
-        case "English":
-            return "EN"
-        case "English (British":
-            return "EN-GB"
-        case "English (American)":
-            return "EN-US"
-        case "Spanish":
-            return "ES"
-        case "Estonian":
-            return "ET"
-        case "Finnish":
-            return "FI"
-        case "French":
-            return "FR"
-        case "Hungarian":
-            return "HU"
-        case "Indonesian":
-            return "ID"
-        case "Italian":
-            return "IT"
-        case "Japanese":
-            return "JA"
-        case "Korean":
-            return "KO"
-        case "Lithuanian":
-            return "LT"
-        case "Latvian":
-            return "LV"
-        case "Norwegian (Bokmål)":
-            return "NB"
-        case "Dutch":
-            return "NL"
-        case "Polish":
-            return "PL"
-        case "Portugese":
-            return "PT"
-        case "Portugese (Brazilian)":
-            return "PT-BR"
-        case "Portugese (all varieties)":
-            return "PT-PT"
-        case "Romanian":
-            return "RO"
-        case "Russian":
-            return "RU"
-        case "Slovak":
-            return "SK"
-        case "Slovenian":
-            return "SL"
-        case "Swedish":
-            return "SV"
-        case "Turkish":
-            return "TR"
-        case "Ukrainian":
-            return "UK"
-        case "Chinese":
-            return "ZH"
+        case "Auto": return "AUTO"
+        case "Bulgarian": return "BG"
+        case "Czech": return "CS"
+        case "Danish": return "DA"
+        case "German": return "DE"
+        case "Greek": return "EL"
+        case "English": return "EN"
+        case "Spanish": return "ES"
+        case "Estonian": return "ET"
+        case "Finnish": return "FI"
+        case "French": return "FR"
+        case "Hungarian": return "HU"
+        case "Indonesian": return "ID"
+        case "Italian": return "IT"
+        case "Japanese": return "JA"
+        case "Korean": return "KO"
+        case "Lithuanian": return "LT"
+        case "Latvian": return "LV"
+        case "Norwegian": return "NB"
+        case "Dutch": return "NL"
+        case "Polish": return "PL"
+        case "Portugese": return "PT"
+        case "Romanian": return "RO"
+        case "Russian": return "RU"
+        case "Slovak": return "SK"
+        case "Slovenian": return "SL"
+        case "Swedish": return "SV"
+        case "Turkish": return "TR"
+        case "Ukrainian": return "UK"
+        case "Chinese": return "ZH"
             
-        default:
-            return "EN"
+        default: return "EN"
         }
     }
     
+    func convertTargetLanguage(_ lang: String) -> String {
+        
+        switch lang {
+        case "Bulgarian": return "BG"
+        case "Czech": return "CS"
+        case "Danish": return "DA"
+        case "German": return "DE"
+        case "Greek": return "EL"
+        case "English": return "EN"
+        case "English (UK)": return "EN-GB"
+        case "English (US)": return "EN-US"
+        case "Spanish": return "ES"
+        case "Estonian": return "ET"
+        case "Finnish": return "FI"
+        case "French": return "FR"
+        case "Hungarian": return "HU"
+        case "Indonesian": return "ID"
+        case "Italian": return "IT"
+        case "Japanese": return "JA"
+        case "Korean": return "KO"
+        case "Lithuanian": return "LT"
+        case "Latvian": return "LV"
+        case "Norwegian": return "NB"
+        case "Dutch": return "NL"
+        case "Polish": return "PL"
+        case "Portugese": return "PT-PT"
+        case "Portugese (BR)": return "PT-BR"
+        case "Romanian": return "RO"
+        case "Russian": return "RU"
+        case "Slovak": return "SK"
+        case "Slovenian": return "SL"
+        case "Swedish": return "SV"
+        case "Turkish": return "TR"
+        case "Ukrainian": return "UK"
+        case "Chinese": return "ZH"
+            
+        default: return "EN"
+        }
+    }
 }

@@ -14,6 +14,7 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var targetPicker: UIPickerView!
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translateButton: UIButton!
+    @IBOutlet weak var translatedText: UITextView!
     
     var translationManager = TranslationManager()
     
@@ -25,11 +26,16 @@ class TranslatorViewController: UIViewController {
         targetPicker.delegate = self
         textToTranslate.delegate = self
 
+        textToTranslate.layer.cornerRadius = 15
+        translatedText.layer.cornerRadius = 15
+        UITextView.appearance().backgroundColor = UIColor(white: 1, alpha: 1)
+        UITextView.appearance().textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        translateButton.layer.cornerRadius = 30
+        
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
-
         toolbar.setItems([flexible, doneButton], animated: false)
         textToTranslate.inputAccessoryView = toolbar
     }
@@ -43,7 +49,7 @@ extension TranslatorViewController: TranslationManagerDelegate {
     
     func showTranslation(_ translation: String) {
         DispatchQueue.main.async {
-            self.translationLabel.text = translation
+            self.translatedText.text = translation
         }
     }
     
@@ -87,11 +93,11 @@ extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == sourcePicker {
-            var chosenSourceLang = translationManager.sourceOptions[row]
-            translationManager.parameters["source"] = translationManager.convertLanguage(chosenSourceLang)
+            let chosenSourceLang = translationManager.sourceOptions[row]
+            translationManager.parameters["source"] = translationManager.convertSourceLanguage(chosenSourceLang)
         } else {
-            var chosenTargetLang = translationManager.targetOptions[row]
-            translationManager.parameters["target"] = translationManager.convertLanguage(chosenTargetLang)
+            let chosenTargetLang = translationManager.targetOptions[row]
+            translationManager.parameters["target"] = translationManager.convertTargetLanguage(chosenTargetLang)
         }
     }
 }
