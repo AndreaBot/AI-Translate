@@ -87,9 +87,11 @@ extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == sourcePicker {
-            translationManager.parameters["source"] = translationManager.sourceOptions[row]
+            var chosenSourceLang = translationManager.sourceOptions[row]
+            translationManager.parameters["source"] = translationManager.convertLanguage(chosenSourceLang)
         } else {
-            translationManager.parameters["target"] = translationManager.targetOptions[row]
+            var chosenTargetLang = translationManager.targetOptions[row]
+            translationManager.parameters["target"] = translationManager.convertLanguage(chosenTargetLang)
         }
     }
 }
