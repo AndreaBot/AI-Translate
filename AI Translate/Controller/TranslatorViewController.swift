@@ -58,12 +58,19 @@ extension TranslatorViewController: TranslationManagerDelegate {
     }
     
     @IBAction func translatePressed(_ sender: UIButton) {
-        if textToTranslate.text != "" {
+        if textToTranslate.text == "" {
+            userAlert()
+        } else {
             let text = textToTranslate.text
-            
             translationManager.parameters["text"] = text
+            translationManager.getTranslation()
         }
-        translationManager.getTranslation()  
+    }
+    
+    func userAlert() {
+        let alert = UIAlertController(title: "Type something to translate first", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }
 
