@@ -16,6 +16,7 @@
 		626FA7372A14083100C0F9AF /* TranslationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7362A14083100C0F9AF /* TranslationData.swift */; };
 		626FA7392A14084A00C0F9AF /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7382A14084A00C0F9AF /* TranslationManager.swift */; };
 		6299A7932A181EDD00860A14 /* AITranslateBackgroud.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6299A7922A181EDD00860A14 /* AITranslateBackgroud.pdf */; };
+		6299A7952A1C17F000860A14 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6299A7942A1C17F000860A14 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		626FA7362A14083100C0F9AF /* TranslationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationData.swift; sourceTree = "<group>"; };
 		626FA7382A14084A00C0F9AF /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		6299A7922A181EDD00860A14 /* AITranslateBackgroud.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AITranslateBackgroud.pdf; sourceTree = "<group>"; };
+		6299A7942A1C17F000860A14 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		626FA7162A14081A00C0F9AF = {
 			isa = PBXGroup;
 			children = (
+				6299A7942A1C17F000860A14 /* README.md */,
 				626FA7212A14081A00C0F9AF /* AI Translate */,
 				626FA7202A14081A00C0F9AF /* Products */,
 			);
@@ -160,6 +163,7 @@
 			files = (
 				626FA72F2A14081B00C0F9AF /* LaunchScreen.storyboard in Resources */,
 				626FA72C2A14081B00C0F9AF /* Assets.xcassets in Resources */,
+				6299A7952A1C17F000860A14 /* README.md in Resources */,
 				6299A7932A181EDD00860A14 /* AITranslateBackgroud.pdf in Resources */,
 				626FA72A2A14081A00C0F9AF /* Main.storyboard in Resources */,
 			);
