@@ -28,13 +28,13 @@ struct TranslationManager {
     ] as [String : Any]
     
     let sourceOptions = [
-        "Auto", "Bulgarian","Chinese","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
-        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
+        "Auto", "Bulgarian","Chinese","Czech","Danish","Dutch","English","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Romanian","Russian","Slovak","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
     let targetOptions = [
-        "Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Estonian","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
-        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Portugese (BR)","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Turkish","Ukrainian"
+        "Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Portugese (BR)","Romanian","Russian","Slovak","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
     func getTranslation() {
@@ -55,7 +55,6 @@ struct TranslationManager {
             }
             if let safeData = data {
                 let translation = parseJSON(safeData)
-                //print(String(data: data!, encoding: .utf8)!)
                 delegate?.showTranslation(translation!)
             }
         })
@@ -89,7 +88,6 @@ struct TranslationManager {
         case "Greek": return "EL"
         case "English": return "EN"
         case "Spanish": return "ES"
-        case "Estonian": return "ET"
         case "Finnish": return "FI"
         case "French": return "FR"
         case "Hungarian": return "HU"
@@ -106,7 +104,6 @@ struct TranslationManager {
         case "Romanian": return "RO"
         case "Russian": return "RU"
         case "Slovak": return "SK"
-        case "Slovenian": return "SL"
         case "Swedish": return "SV"
         case "Turkish": return "TR"
         case "Ukrainian": return "UK"
@@ -128,7 +125,6 @@ struct TranslationManager {
         case "English (UK)": return "EN-GB"
         case "English (US)": return "EN-US"
         case "Spanish": return "ES"
-        case "Estonian": return "ET"
         case "Finnish": return "FI"
         case "French": return "FR"
         case "Hungarian": return "HU"
@@ -146,7 +142,6 @@ struct TranslationManager {
         case "Romanian": return "RO"
         case "Russian": return "RU"
         case "Slovak": return "SK"
-        case "Slovenian": return "SL"
         case "Swedish": return "SV"
         case "Turkish": return "TR"
         case "Ukrainian": return "UK"

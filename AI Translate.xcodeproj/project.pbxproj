@@ -17,6 +17,8 @@
 		626FA7392A14084A00C0F9AF /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7382A14084A00C0F9AF /* TranslationManager.swift */; };
 		6299A7932A181EDD00860A14 /* AITranslateBackgroud.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6299A7922A181EDD00860A14 /* AITranslateBackgroud.pdf */; };
 		6299A7952A1C17F000860A14 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6299A7942A1C17F000860A14 /* README.md */; };
+		6299A7972A1D596F00860A14 /* TextReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299A7962A1D596F00860A14 /* TextReaderManager.swift */; };
+		62B783A22A1D699600BB9870 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B783A12A1D699600BB9870 /* ReadData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		626FA7382A14084A00C0F9AF /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		6299A7922A181EDD00860A14 /* AITranslateBackgroud.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AITranslateBackgroud.pdf; sourceTree = "<group>"; };
 		6299A7942A1C17F000860A14 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6299A7962A1D596F00860A14 /* TextReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReaderManager.swift; sourceTree = "<group>"; };
+		62B783A12A1D699600BB9870 /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				626FA7382A14084A00C0F9AF /* TranslationManager.swift */,
+				6299A7962A1D596F00860A14 /* TextReaderManager.swift */,
 				626FA7362A14083100C0F9AF /* TranslationData.swift */,
+				62B783A12A1D699600BB9870 /* ReadData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,7 +184,9 @@
 			files = (
 				626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */,
 				626FA7372A14083100C0F9AF /* TranslationData.swift in Sources */,
+				62B783A22A1D699600BB9870 /* ReadData.swift in Sources */,
 				626FA7392A14084A00C0F9AF /* TranslationManager.swift in Sources */,
+				6299A7972A1D596F00860A14 /* TextReaderManager.swift in Sources */,
 				626FA7232A14081A00C0F9AF /* AppDelegate.swift in Sources */,
 				626FA7252A14081A00C0F9AF /* SceneDelegate.swift in Sources */,
 			);
