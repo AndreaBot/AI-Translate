@@ -77,15 +77,15 @@ extension TranslatorViewController: TranslationManagerDelegate {
     
     @IBAction func translatePressed(_ sender: UIButton) {
         if textToTranslate.text == "" {
-            alert()
+            noTextAlert()
         } else {
             translationManager.parameters["text"] = textToTranslate.text
             translationManager.getTranslation()
         }
     }
 
-    func alert() {
-        let alert = UIAlertController(title: "Type something to translate first", message: "", preferredStyle: .alert)
+    func noTextAlert() {
+        let alert = UIAlertController(title: "Please type something to translate first.", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
@@ -180,11 +180,18 @@ extension TranslatorViewController: TextReaderManagerDelegate {
     }
 
     @IBAction func hearTranslation(_ sender: UIButton) {
-        if textToTranslate.text == ""  {
-            alert()
+        let parameters = self.textReaderManager.parameters
+        let input = parameters["input"] as? [String: String]
+        if input!["text"] == "" {
+            noTranslationAlert()
         } else {
             textReaderManager.generateVoice()
         }
     }
   
+    func noTranslationAlert() {
+        let alert = UIAlertController(title: "Nothing has been translated yet.", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
 }
