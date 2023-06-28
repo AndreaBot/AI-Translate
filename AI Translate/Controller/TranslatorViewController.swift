@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
 import AVFoundation
 
 class TranslatorViewController: UIViewController {
@@ -25,6 +27,7 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationItem.hidesBackButton = true
 
         translationManager.delegate = self
         targetPicker.dataSource = self
@@ -47,6 +50,18 @@ class TranslatorViewController: UIViewController {
         
         hearTranslationButton.tintColor = .white
     }
+    
+    @IBAction func logoutUser(_ sender: UIBarButtonItem) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    
     
 }
 
@@ -163,7 +178,6 @@ extension TranslatorViewController: TextReaderManagerDelegate {
         }
 
         let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent("audio.mp3")
-        print(fileURL)
         
         do {
             try audioData.write(to: fileURL)
@@ -191,7 +205,7 @@ extension TranslatorViewController: TextReaderManagerDelegate {
   
     func noTranslationAlert() {
         let alert = UIAlertController(title: "Nothing has been translated yet.", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         present(alert, animated: true)
     }
 }
