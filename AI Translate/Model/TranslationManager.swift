@@ -33,7 +33,7 @@ struct TranslationManager {
     ]
     
     let targetOptions = [
-        "Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "🇧🇬 Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
         "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Portugese (BR)","Romanian","Russian","Slovak","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
@@ -148,6 +148,44 @@ struct TranslationManager {
         case "Chinese": return "ZH"
             
         default: return "EN"
+        }
+    }
+    
+    func assignFlag(_ lang: String) -> String {
+        
+        switch lang {
+        case "Bulgarian": return "🇧🇬"
+        case "Czech": return "🇨🇿"
+        case "Danish": return "🇩🇰"
+        case "German": return "🇩🇪"
+        case "Greek": return "🇬🇷"
+        case "English": return "🇬🇧"
+        case "English (UK)": return "🇬🇧"
+        case "English (US)": return "🇺🇸"
+        case "Spanish": return "🇪🇸"
+        case "Finnish": return "🇫🇮"
+        case "French": return "🇫🇷"
+        case "Hungarian": return "🇭🇺"
+        case "Indonesian": return "🇮🇩"
+        case "Italian": return "🇮🇹"
+        case "Japanese": return "🇯🇵"
+        case "Korean": return "🇰🇷"
+        case "Lithuanian": return "🇱🇹"
+        case "Latvian": return "🇱🇻"
+        case "Norwegian": return "🇳🇴"
+        case "Dutch": return "🇳🇱"
+        case "Polish": return "🇵🇱"
+        case "Portugese": return "🇵🇹"
+        case "Portugese (BR)": return "🇧🇷"
+        case "Romanian": return "🇷🇴"
+        case "Russian": return "🇷🇺"
+        case "Slovak": return "🇸🇰"
+        case "Swedish": return "🇸🇪"
+        case "Turkish": return "🇹🇷"
+        case "Ukrainian": return "🇺🇦"
+        case "Chinese": return "🇨🇳"
+            
+        default: return ""
         }
     }
 }

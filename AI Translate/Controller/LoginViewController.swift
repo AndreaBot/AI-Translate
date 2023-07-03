@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                 if let e = error {
                     self.showAlert(e.localizedDescription)
                 } else {
-                    self.performSegue(withIdentifier: "loginSuccess", sender: self)
+                    self.performSegue(withIdentifier: K.Segues.loginToTranslator, sender: self)
                 }
             }
         }
@@ -37,5 +37,12 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Retry", style: .cancel))
         present(alert, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.loginToTranslator {
+            let destinationVC = segue.destination as? TranslatorViewController
+            destinationVC?.cameFromLogin = true
+        }
     }
 }

@@ -8,26 +8,41 @@
 import UIKit
 import FirebaseAuth
 import FirebaseCore
+import FirebaseFirestore
 import AVFoundation
 
 class TranslatorViewController: UIViewController {
     
-    @IBOutlet weak var translationLabel: UILabel!
     @IBOutlet weak var sourcePicker: UIPickerView!
     @IBOutlet weak var targetPicker: UIPickerView!
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var hearTranslationButton: UIButton!
+    @IBOutlet weak var saveTranslationButton: UIButton!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    
+    let db = Firestore.firestore()
     
     var translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
     var player: AVAudioPlayer?
+    var cameFromLogin: Bool?
+    
+    var chosenSourceLang: String!
+    var chosenTargetLang: String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationItem.hidesBackButton = true
+        
+        if cameFromLogin == false {
+            navigationItem.hidesBackButton = false
+            logoutButton.isHidden = true
+        } else {
+            navigationItem.hidesBackButton = true
+            logoutButton.isHidden = false
+        }
 
         translationManager.delegate = self
         targetPicker.dataSource = self
@@ -49,6 +64,7 @@ class TranslatorViewController: UIViewController {
         textToTranslate.inputAccessoryView = toolbar
         
         hearTranslationButton.tintColor = .white
+        saveTranslationButton.tintColor = .white
     }
     
     @IBAction func logoutUser(_ sender: UIBarButtonItem) {
@@ -62,6 +78,30 @@ class TranslatorViewController: UIViewController {
         }
     }
     
+    @IBAction func saveTranslationPressed(_ sender: UIButton) {
+        if cameFromLogin == false {
+            let alert = UIAlertController(title: "Error", message: "You need to be logged in as an user to save translations. ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+            present(alert, animated: true)
+        } else {
+            if let sourceLang = chosenSourceLang, let originalText = textToTranslate.text, let targetLang = chosenTargetLang, let finalText = translatedText.text {
+                db.collection(K.Firestore.collectionName).addDocument(data: [
+                    K.Firestore.sourceLanguage: sourceLang,
+                    K.Firestore.originalText: originalText,
+                    K.Firestore.targetLanguage: targetLang,
+                    K.Firestore.translation: finalText
+                ]
+                    //K.FStore.dateField: Date().timeIntervalSince1970
+                ) { (error) in
+                    if let e = error {
+                        print("there was an error adding data to firestore, \(e)")
+                    } else {
+                        print("success")
+                    }
+                }
+            }
+        }
+    }
     
 }
 
@@ -132,10 +172,10 @@ extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == sourcePicker {
-            let chosenSourceLang = translationManager.sourceOptions[row]
-            translationManager.parameters["source"] = translationManager.convertSourceLanguage(chosenSourceLang)
+            chosenSourceLang = translationManager.sourceOptions[row]
+            translationManager.parameters["source"] = translationManager.convertSourceLanguage(chosenSourceLang!)
         } else {
-            let chosenTargetLang = translationManager.targetOptions[row]
+            chosenTargetLang = translationManager.targetOptions[row]
             translationManager.parameters["target"] = translationManager.convertTargetLanguage(chosenTargetLang)
             
                var parameters = self.textReaderManager.parameters

@@ -49,6 +49,18 @@
                                     <segue destination="Jaw-DI-3kP" kind="show" id="BTd-GS-kNa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-jD-Sw9">
+                                <rect key="frame" x="60" y="718" width="272" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Continue as a guest">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueAsGuestPressed:" destination="p34-qk-zip" eventType="touchUpInside" id="cCT-iR-59y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V96-0r-LjL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,6 +72,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brV-Sa-DSP"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="continueAsGuest" id="0Nd-9E-7UK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Cl-ee-0fu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,13 +154,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AITranslateBackgroud" translatesAutoresizingMaskIntoConstraints="NO" id="e9o-KZ-ZaT">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-63-sXn">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Andrea@1.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-63-sXn">
                                 <rect key="frame" x="148" y="291" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k94-C7-64I">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k94-C7-64I">
                                 <rect key="frame" x="148" y="381" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -182,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3i-Hn-uzl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-118.32061068702289" y="415.49295774647891"/>
+            <point key="canvasLocation" x="-118" y="551"/>
         </scene>
         <!--Translator View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -199,7 +214,7 @@
                                 <rect key="frame" x="15" y="123" width="363" height="655"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="daW-tO-Zwo" userLabel="Top Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="460"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="413.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-6d-H9s" userLabel="To Translate Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="160"/>
@@ -226,10 +241,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-u3-Fkj" userLabel="Pickers Stack View">
-                                                <rect key="frame" x="0.0" y="169" width="363" height="291"/>
+                                                <rect key="frame" x="0.0" y="169" width="363" height="244.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-1Y-FWz" userLabel="Source Stack View">
-                                                        <rect key="frame" x="0.0" y="30.000000000000014" width="191.66666666666666" height="231.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="6.6666666666666856" width="191.66666666666666" height="231.33333333333334"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ie-7C-aNC">
                                                                 <rect key="frame" x="76" y="0.0" width="39.333333333333343" height="20.333333333333332"/>
@@ -247,7 +262,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="uHl-Ue-fNC" userLabel="Target Stack View">
-                                                        <rect key="frame" x="171.66666666666663" y="30.000000000000014" width="191.33333333333337" height="231.33333333333337"/>
+                                                        <rect key="frame" x="171.66666666666663" y="6.6666666666666856" width="191.33333333333337" height="231.33333333333334"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUZ-9m-ToR">
                                                                 <rect key="frame" x="86.333333333333343" y="0.0" width="18.333333333333329" height="20.333333333333332"/>
@@ -269,7 +284,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4As-yz-MV4" userLabel="Bottom Stack View">
-                                        <rect key="frame" x="0.0" y="460" width="363" height="195"/>
+                                        <rect key="frame" x="0.0" y="413.33333333333343" width="363" height="241.66666666666669"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iK4-Ur-ypx" userLabel="Translate View">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="40"/>
@@ -302,22 +317,36 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="feD-cQ-Tw9" userLabel="Result Stack View">
                                                 <rect key="frame" x="0.0" y="45" width="363" height="150"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKB-Fy-8Vx">
-                                                        <rect key="frame" x="333" y="0.0" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="30" id="fcd-Qp-6fp"/>
-                                                            <constraint firstAttribute="height" constant="30" id="qoc-ez-ctK"/>
-                                                        </constraints>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal">
-                                                            <imageReference key="image" image="speaker.wave.2" catalog="system" renderingMode="template"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="hearTranslation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dLA-Eg-ApR"/>
-                                                        </connections>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gCU-mb-NW5">
+                                                        <rect key="frame" x="298" y="0.0" width="65" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ8-dC-8he" userLabel="Save Button">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" image="plus.circle" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="saveTranslationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNh-Lh-zo5"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKB-Fy-8Vx">
+                                                                <rect key="frame" x="35" y="0.0" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="30" id="fcd-Qp-6fp"/>
+                                                                    <constraint firstAttribute="height" constant="30" id="qoc-ez-ctK"/>
+                                                                </constraints>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal">
+                                                                    <imageReference key="image" image="speaker.wave.2" catalog="system" renderingMode="template"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="hearTranslation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dLA-Eg-ApR"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jpr-Z7-e1x">
                                                         <rect key="frame" x="0.0" y="30" width="363" height="120"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -334,6 +363,14 @@
                                                     <constraint firstAttribute="trailing" secondItem="Jpr-Z7-e1x" secondAttribute="trailing" id="ra9-ur-Pvd"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7q-g9-wcP" userLabel="Saved Translations">
+                                                <rect key="frame" x="0.0" y="200" width="363" height="41.666666666666657"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="My translations"/>
+                                                <connections>
+                                                    <segue destination="Eat-Rv-RvB" kind="show" identifier="goToSavedTranslations" id="DoZ-gg-s6V"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -365,6 +402,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="hearTranslationButton" destination="JKB-Fy-8Vx" id="K1i-ez-GhQ"/>
+                        <outlet property="logoutButton" destination="8Zd-ne-MXC" id="8Wa-ZD-iat"/>
+                        <outlet property="saveTranslationButton" destination="WZ8-dC-8he" id="FEs-tg-2Js"/>
                         <outlet property="sourcePicker" destination="k3k-xJ-57S" id="I2K-RC-h13"/>
                         <outlet property="targetPicker" destination="ZSm-Jq-ROk" id="BBv-bf-g2b"/>
                         <outlet property="textToTranslate" destination="Te4-vG-sz3" id="FfZ-NJ-bbz"/>
@@ -375,6 +414,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979.38931297709917" y="-2.1126760563380285"/>
+        </scene>
+        <!--Saved Translations View Controller-->
+        <scene sceneID="Tmp-9I-OuI">
+            <objects>
+                <viewController id="Eat-Rv-RvB" customClass="SavedTranslationsViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jQh-fv-X5x">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AITranslateBackgroud" translatesAutoresizingMaskIntoConstraints="NO" id="j9u-6t-4nM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-Po-2SE">
+                                <rect key="frame" x="10" y="123" width="373" height="695"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tranlsationCell" rowHeight="40" id="4yS-gK-3pe">
+                                        <rect key="frame" x="0.0" y="50" width="373" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4yS-gK-3pe" id="1eP-C3-Dsz">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kaG-2x-isO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kaG-2x-isO" firstAttribute="trailing" secondItem="j9u-6t-4nM" secondAttribute="trailing" id="2YO-qF-e5n"/>
+                            <constraint firstItem="B3F-Po-2SE" firstAttribute="top" secondItem="kaG-2x-isO" secondAttribute="top" constant="20" id="JY5-rd-7Fa"/>
+                            <constraint firstItem="j9u-6t-4nM" firstAttribute="top" secondItem="jQh-fv-X5x" secondAttribute="top" id="PlO-G0-oqu"/>
+                            <constraint firstItem="kaG-2x-isO" firstAttribute="bottom" secondItem="B3F-Po-2SE" secondAttribute="bottom" id="YfY-jD-YEg"/>
+                            <constraint firstAttribute="bottom" secondItem="j9u-6t-4nM" secondAttribute="bottom" id="cKh-yU-Ifx"/>
+                            <constraint firstItem="kaG-2x-isO" firstAttribute="trailing" secondItem="B3F-Po-2SE" secondAttribute="trailing" constant="10" id="cPb-fM-slO"/>
+                            <constraint firstItem="B3F-Po-2SE" firstAttribute="leading" secondItem="kaG-2x-isO" secondAttribute="leading" constant="10" id="dsE-GF-uqb"/>
+                            <constraint firstItem="j9u-6t-4nM" firstAttribute="leading" secondItem="kaG-2x-isO" secondAttribute="leading" id="eKW-7b-usO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bzo-u8-C4C"/>
+                    <connections>
+                        <outlet property="tableView" destination="B3F-Po-2SE" id="owQ-M0-4HS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-ud-tQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="-1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZJ0-Wr-0Xp">
@@ -396,10 +484,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BEK-Om-WlE"/>
+        <segue reference="OrG-qT-MRb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AITranslateBackgroud" width="810" height="1440"/>
+        <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

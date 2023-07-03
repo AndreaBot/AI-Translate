@@ -30,12 +30,12 @@ class RegisterViewController: UIViewController {
                     if let e = error {
                         self.showAlert(e.localizedDescription)
                     } else {
-                        self.performSegue(withIdentifier: "registerSuccess", sender: self)
+                        self.performSegue(withIdentifier: K.Segues.registerToTranslator, sender: self)
                     }
                 }
             }
         } else {
-            showAlert("The passwords don't match")
+            showAlert("The password hasn't been set or the passwords don't match")
         }
     }
     
@@ -45,7 +45,12 @@ class RegisterViewController: UIViewController {
             present(alert, animated: true)
         }
         
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.registerToTranslator {
+            let destinationVC = segue.destination as? TranslatorViewController
+            destinationVC?.cameFromLogin = true
+        }
+    }
 }
 
 //    //MARK: - UITextField Delegate

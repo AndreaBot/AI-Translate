@@ -11,3 +11,4 @@ struct ReadData: Decodable {
     
     var audioContent: String?
 }
+
