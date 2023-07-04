@@ -109,7 +109,7 @@ struct TranslationManager {
         case "Ukrainian": return "UK"
         case "Chinese": return "ZH"
             
-        default: return "EN"
+        default: return "AUTO"
         }
     }
     
@@ -147,7 +147,7 @@ struct TranslationManager {
         case "Ukrainian": return "UK"
         case "Chinese": return "ZH"
             
-        default: return "EN"
+        default: return "BG"
         }
     }
     

@@ -20,6 +20,7 @@ class SavedTranslationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UINib(nibName: K.TableView.cellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.cellIdentifier)
         loadTranslations()
         
@@ -30,7 +31,7 @@ class SavedTranslationsViewController: UIViewController {
         
         db.collection(K.Firestore.collectionName)
             //.order(by: K.FStore.dateField)
-            .getDocuments { (querySnapshot, error) in
+            .addSnapshotListener { (querySnapshot, error) in
             
             self.translations = []
             
@@ -50,6 +51,7 @@ class SavedTranslationsViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
+                                print(self.translations)
                             }
                         }
                     }
@@ -60,9 +62,9 @@ class SavedTranslationsViewController: UIViewController {
 
 }
 
-//MARK: - TableViewDataSource
+//MARK: - TableViewDataSource - TableViewDelegate
 
-extension SavedTranslationsViewController: UITableViewDataSource {
+extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return translations.count
     }
@@ -78,4 +80,37 @@ extension SavedTranslationsViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            tableView.beginUpdates()
+            translations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            db.collection(K.Firestore.collectionName)
+                .getDocuments { (querySnapshot, error) in
+                    if let e = error {
+                        print(e)
+                    } else {
+                        if let snapshotDocuments = querySnapshot?.documents {
+                            let documentID = snapshotDocuments[indexPath.row].documentID
+                            self.db.collection(K.Firestore.collectionName).document(documentID).delete() { err in
+                                if let err = err {
+                                    print("Error removing document: \(err)")
+                                } else {
+                                    print("Document successfully removed!")
+                                }
+                            }
+                        }
+                    }
+                }
+            tableView.endUpdates()
+        }
+    }
 }
+        
