@@ -21,6 +21,7 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var hearTranslationButton: UIButton!
     @IBOutlet weak var saveTranslationButton: UIButton!
     @IBOutlet weak var logoutButton: UIBarButtonItem!
+    @IBOutlet weak var myTranslationButton : UIBarButtonItem!
     
     let db = Firestore.firestore()
     
@@ -31,6 +32,18 @@ class TranslatorViewController: UIViewController {
     
     var chosenSourceLang: String!
     var chosenTargetLang: String!
+    
+    func showAlert(with message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        present(alert, animated: true)
+    }
+    
+    func showTimedAlert() {
+        let alert = UIAlertController(title: "Success", message: "Translation saved.", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+    }
     
     
     override func viewDidLoad() {
@@ -43,6 +56,8 @@ class TranslatorViewController: UIViewController {
             navigationItem.hidesBackButton = true
             logoutButton.isHidden = false
         }
+        saveTranslationButton.isEnabled = false
+        hearTranslationButton.isEnabled = false
 
         translationManager.delegate = self
         targetPicker.dataSource = self
@@ -80,29 +95,39 @@ class TranslatorViewController: UIViewController {
     
     @IBAction func saveTranslationPressed(_ sender: UIButton) {
         if cameFromLogin == false {
-            let alert = UIAlertController(title: "Error", message: "You need to be logged in as an user to save translations. ", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-            present(alert, animated: true)
+            showAlert(with: "You need to be logged in as an user to save translations.")
         } else {
+            
             if let sourceLang = chosenSourceLang, let originalText = textToTranslate.text, let targetLang = chosenTargetLang, let finalText = translatedText.text {
                 db.collection(K.Firestore.collectionName).addDocument(data: [
                     K.Firestore.sourceLanguage: sourceLang,
                     K.Firestore.originalText: originalText,
                     K.Firestore.targetLanguage: targetLang,
-                    K.Firestore.translation: finalText
+                    K.Firestore.translation: finalText,
+                    
                 ]
                     //K.FStore.dateField: Date().timeIntervalSince1970
                 ) { (error) in
                     if let e = error {
                         print("there was an error adding data to firestore, \(e)")
                     } else {
-                        print("success")
+                        sender.isEnabled = false
+                        sender.setImage(UIImage(systemName: "heart.fill"), for: .disabled)
+                        self.showTimedAlert()
                     }
                 }
             }
         }
     }
     
+    @IBAction func myTranslationsPressed(_ sender: UIBarButtonItem) {
+        
+        if cameFromLogin == true {
+            performSegue(withIdentifier: K.Segues.translatorToSaved, sender: self)
+        } else {
+            showAlert(with: "You need to be logged in as an user to access saved translations.")
+        }
+    }
 }
 
 
@@ -132,17 +157,13 @@ extension TranslatorViewController: TranslationManagerDelegate {
     
     @IBAction func translatePressed(_ sender: UIButton) {
         if textToTranslate.text == "" {
-            noTextAlert()
+            showAlert(with: "Please type something to translate first.")
         } else {
             translationManager.parameters["text"] = textToTranslate.text
             translationManager.getTranslation()
+            saveTranslationButton.isEnabled = true
+            hearTranslationButton.isEnabled = true
         }
-    }
-
-    func noTextAlert() {
-        let alert = UIAlertController(title: "Please type something to translate first.", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }
 
@@ -234,18 +255,7 @@ extension TranslatorViewController: TextReaderManagerDelegate {
     }
 
     @IBAction func hearTranslation(_ sender: UIButton) {
-        let parameters = self.textReaderManager.parameters
-        let input = parameters["input"] as? [String: String]
-        if input!["text"] == "" {
-            noTranslationAlert()
-        } else {
+        
             textReaderManager.generateVoice()
-        }
-    }
-  
-    func noTranslationAlert() {
-        let alert = UIAlertController(title: "Nothing has been translated yet.", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-        present(alert, animated: true)
     }
 }
