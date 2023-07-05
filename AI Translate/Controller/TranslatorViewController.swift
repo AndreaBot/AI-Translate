@@ -28,7 +28,7 @@ class TranslatorViewController: UIViewController {
     var translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
     var player: AVAudioPlayer?
-    var cameFromLogin: Bool?
+    //var cameFromLogin: Bool?
     
     var chosenSourceLang: String!
     var chosenTargetLang: String!
@@ -49,16 +49,16 @@ class TranslatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if cameFromLogin == false {
+        if Auth.auth().currentUser == nil {
             navigationItem.hidesBackButton = false
             logoutButton.isHidden = true
         } else {
             navigationItem.hidesBackButton = true
             logoutButton.isHidden = false
         }
+        
         saveTranslationButton.isEnabled = false
         hearTranslationButton.isEnabled = false
-
         translationManager.delegate = self
         targetPicker.dataSource = self
         targetPicker.delegate = self
@@ -94,7 +94,7 @@ class TranslatorViewController: UIViewController {
     }
     
     @IBAction func saveTranslationPressed(_ sender: UIButton) {
-        if cameFromLogin == false {
+        if Auth.auth().currentUser == nil {
             showAlert(with: "You need to be logged in as an user to save translations.")
         } else {
             
@@ -122,10 +122,10 @@ class TranslatorViewController: UIViewController {
     
     @IBAction func myTranslationsPressed(_ sender: UIBarButtonItem) {
         
-        if cameFromLogin == true {
-            performSegue(withIdentifier: K.Segues.translatorToSaved, sender: self)
-        } else {
+        if Auth.auth().currentUser == nil {
             showAlert(with: "You need to be logged in as an user to access saved translations.")
+        } else {
+            performSegue(withIdentifier: K.Segues.translatorToSaved, sender: self)
         }
     }
 }

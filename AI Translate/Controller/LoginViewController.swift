@@ -38,11 +38,4 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Retry", style: .cancel))
         present(alert, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.Segues.loginToTranslator {
-            let destinationVC = segue.destination as? TranslatorViewController
-            destinationVC?.cameFromLogin = true
-        }
-    }
 }

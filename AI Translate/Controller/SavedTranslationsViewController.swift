@@ -51,7 +51,6 @@ class SavedTranslationsViewController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
-                                print(self.translations)
                             }
                         }
                     }

@@ -33,8 +33,8 @@ struct TranslationManager {
     ]
     
     let targetOptions = [
-        "🇧🇬 Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
-        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese","Portugese (BR)","Romanian","Russian","Slovak","Spanish","Swedish","Turkish","Ukrainian"
+        "Bulgarian","Chinese","Czech","Danish","Dutch","English (UK)","English (US)","Finnish","French","German","Greek","Hungarian","Indonesian","Italian","Japanese",
+        "Korean","Latvian","Lithuanian","Norwegian","Polish","Portugese (PT)","Portugese (BR)","Romanian","Russian","Slovak","Spanish","Swedish","Turkish","Ukrainian"
     ]
     
     func getTranslation() {
@@ -137,7 +137,7 @@ struct TranslationManager {
         case "Norwegian": return "NB"
         case "Dutch": return "NL"
         case "Polish": return "PL"
-        case "Portugese": return "PT-PT"
+        case "Portugese (PT)": return "PT-PT"
         case "Portugese (BR)": return "PT-BR"
         case "Romanian": return "RO"
         case "Russian": return "RU"
@@ -175,7 +175,7 @@ struct TranslationManager {
         case "Norwegian": return "🇳🇴"
         case "Dutch": return "🇳🇱"
         case "Polish": return "🇵🇱"
-        case "Portugese": return "🇵🇹"
+        case "Portugese (PT)": return "🇵🇹"
         case "Portugese (BR)": return "🇧🇷"
         case "Romanian": return "🇷🇴"
         case "Russian": return "🇷🇺"
