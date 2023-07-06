@@ -24,11 +24,11 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var myTranslationButton : UIBarButtonItem!
     
     let db = Firestore.firestore()
+    let user = Auth.auth().currentUser!
     
     var translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
     var player: AVAudioPlayer?
-    //var cameFromLogin: Bool?
     
     var chosenSourceLang: String!
     var chosenTargetLang: String!
@@ -48,7 +48,7 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("User: \(user)")
         if Auth.auth().currentUser == nil {
             navigationItem.hidesBackButton = false
             logoutButton.isHidden = true
@@ -97,14 +97,12 @@ class TranslatorViewController: UIViewController {
         if Auth.auth().currentUser == nil {
             showAlert(with: "You need to be logged in as an user to save translations.")
         } else {
-            
             if let sourceLang = chosenSourceLang, let originalText = textToTranslate.text, let targetLang = chosenTargetLang, let finalText = translatedText.text {
-                db.collection(K.Firestore.collectionName).addDocument(data: [
+                db.collection(Auth.auth().currentUser!.uid ).addDocument(data: [
                     K.Firestore.sourceLanguage: sourceLang,
                     K.Firestore.originalText: originalText,
                     K.Firestore.targetLanguage: targetLang,
-                    K.Firestore.translation: finalText,
-                    
+                    K.Firestore.translation: finalText, 
                 ]
                     //K.FStore.dateField: Date().timeIntervalSince1970
                 ) { (error) in

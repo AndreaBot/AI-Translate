@@ -22,7 +22,6 @@ struct K {
     }
     
     struct Firestore {
-        static let collectionName = "Saved Translations"
         static let sourceLanguage = "source language"
         static let originalText = "original text"
         static let targetLanguage = "target language"
