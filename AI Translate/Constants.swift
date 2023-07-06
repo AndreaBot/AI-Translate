@@ -26,5 +26,6 @@ struct K {
         static let originalText = "original text"
         static let targetLanguage = "target language"
         static let translation = "translation"
+        static let dateField = "date"
     }
 }

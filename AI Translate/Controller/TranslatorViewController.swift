@@ -48,7 +48,7 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("User: \(user)")
+    
         if Auth.auth().currentUser == nil {
             navigationItem.hidesBackButton = false
             logoutButton.isHidden = true
@@ -102,10 +102,10 @@ class TranslatorViewController: UIViewController {
                     K.Firestore.sourceLanguage: sourceLang,
                     K.Firestore.originalText: originalText,
                     K.Firestore.targetLanguage: targetLang,
-                    K.Firestore.translation: finalText, 
-                ]
-                    //K.FStore.dateField: Date().timeIntervalSince1970
-                ) { (error) in
+                    K.Firestore.translation: finalText,
+                    K.Firestore.dateField: Date().timeIntervalSince1970
+                ])
+                 { (error) in
                     if let e = error {
                         print("there was an error adding data to firestore, \(e)")
                     } else {

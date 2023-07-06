@@ -31,7 +31,7 @@ class SavedTranslationsViewController: UIViewController {
     
     func loadTranslations() {
         db.collection(Auth.auth().currentUser!.uid)
-        //.order(by: K.FStore.dateField)
+            .order(by: K.Firestore.dateField, descending: true)
             .getDocuments { (querySnapshot, error) in
                 
                 self.translations = []
@@ -93,14 +93,14 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             translations.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            db.collection(K.Firestore.collectionName)
+            db.collection(Auth.auth().currentUser!.uid)
                 .getDocuments { (querySnapshot, error) in
                     if let e = error {
                         print(e)
                     } else {
                         if let snapshotDocuments = querySnapshot?.documents {
                             let documentID = snapshotDocuments[indexPath.row].documentID
-                            self.db.collection(K.Firestore.collectionName).document(documentID).delete() { err in
+                            self.db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { err in
                                 if let err = err {
                                     print("Error removing document: \(err)")
                                 } else {
