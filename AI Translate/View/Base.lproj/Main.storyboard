@@ -133,6 +133,18 @@
                                     <segue destination="eyh-7d-YuW" kind="show" id="6a9-85-k7I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AI-CM-yuT">
+                                <rect key="frame" x="299" y="354" width="31" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="eye.slash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPasswordsPressed:" destination="Jaw-DI-3kP" eventType="touchUpInside" id="pa1-pg-Xej"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jvN-39-hbh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -148,6 +160,7 @@
                         <outlet property="emailTextField" destination="mWg-Nl-FRz" id="e7F-DI-VtB"/>
                         <outlet property="passwordTextField" destination="6p4-Xm-ZNl" id="Vy6-Vi-L1b"/>
                         <outlet property="repeatPasswordTextField" destination="Gdd-qQ-ehN" id="rrg-M6-lxV"/>
+                        <outlet property="showPasswordsButton" destination="1AI-CM-yuT" id="KFe-Uk-ttG"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="registerSuccess" id="BEK-Om-WlE"/>
                     </connections>
                 </viewController>
@@ -190,6 +203,18 @@
                                     <action selector="loginUser:" destination="eyh-7d-YuW" eventType="touchUpInside" id="1C4-lM-KVn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4J-CD-Oo2">
+                                <rect key="frame" x="285" y="389" width="31" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="eye.slash" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPasswordPressed:" destination="eyh-7d-YuW" eventType="touchUpInside" id="jgk-gH-jJC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PdH-vb-hL4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -204,6 +229,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="g7Q-63-sXn" id="SJU-8d-GRo"/>
                         <outlet property="passwordTextField" destination="k94-C7-64I" id="JdM-MB-c3D"/>
+                        <outlet property="showPasswordButton" destination="Y4J-CD-Oo2" id="D5A-Rj-dlM"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loginSuccess" id="OrG-qT-MRb"/>
                     </connections>
                 </viewController>
@@ -336,7 +362,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" image="heart" catalog="system"/>
+                                                                <state key="normal" image="heart" catalog="system">
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="saveTranslationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dNh-Lh-zo5"/>
                                                                 </connections>
@@ -502,6 +530,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AITranslateBackgroud" width="810" height="1440"/>
+        <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">

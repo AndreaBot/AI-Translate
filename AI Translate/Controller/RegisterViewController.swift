@@ -14,10 +14,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
+    @IBOutlet weak var showPasswordsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showPasswordsButton.tintColor = .white
+        passwordTextField.isSecureTextEntry = true
+        repeatPasswordTextField.isSecureTextEntry = true
         //emailTextField.delegate = self
     }
     
@@ -37,6 +40,20 @@ class RegisterViewController: UIViewController {
         } else {
             showAlert("The password hasn't been set or the passwords don't match")
         }
+    }
+    
+    
+    @IBAction func showPasswordsPressed(_ sender: UIButton) {
+        if passwordTextField.isSecureTextEntry == true && repeatPasswordTextField.isSecureTextEntry == true {
+                passwordTextField.isSecureTextEntry = false
+            repeatPasswordTextField.isSecureTextEntry = false
+                sender.setImage(UIImage(systemName: "eye"), for: .normal)
+            } else {
+                passwordTextField.isSecureTextEntry = true
+                repeatPasswordTextField.isSecureTextEntry = true
+                sender.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+
+            }
     }
     
         func showAlert(_ message: String) {

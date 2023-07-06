@@ -13,9 +13,13 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var showPasswordButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //showPasswordButton.setImage(UIImage(systemName: "Eye.slash"), for: .normal)
+        showPasswordButton.tintColor = .white
+        passwordTextField.isSecureTextEntry = true
     }
     
     
@@ -30,6 +34,17 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func showPasswordPressed(_ sender: UIButton) {
+        if passwordTextField.isSecureTextEntry == true {
+                passwordTextField.isSecureTextEntry = false
+                sender.setImage(UIImage(systemName: "eye"), for: .normal)
+            } else {
+                passwordTextField.isSecureTextEntry = true
+                sender.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+
+            }
     }
     
     
