@@ -25,7 +25,6 @@ class SavedTranslationsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: K.TableView.cellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.cellIdentifier)
         loadTranslations()
-        
     }
     
     
@@ -79,6 +78,8 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         cell.translationText.text = translation.finalText
         cell.targetFlag.text = translationManager.assignFlag(translation.targetlang)
         
+        cell.backgroundColor = .clear
+            
         return cell
     }
     

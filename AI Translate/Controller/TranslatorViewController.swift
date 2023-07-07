@@ -24,7 +24,6 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var myTranslationButton : UIBarButtonItem!
     
     let db = Firestore.firestore()
-    let user = Auth.auth().currentUser!
     
     var translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
