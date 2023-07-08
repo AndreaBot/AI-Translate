@@ -516,65 +516,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-4n-Qzh">
-                                <rect key="frame" x="10" y="50" width="373" height="762"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-4n-Qzh" userLabel="Main Stack View">
+                                <rect key="frame" x="10" y="25" width="373" height="807"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-Bu-9Ge" userLabel="Source Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="371"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nLE-PU-cyb" userLabel="Texts Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="765"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-fQ-y5k">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-mR-bVf">
-                                                <rect key="frame" x="0.0" y="34" width="373" height="337"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-Bu-9Ge" userLabel="Source Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="372.66666666666669"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-fQ-y5k">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-mR-bVf">
+                                                        <rect key="frame" x="0.0" y="29" width="373" height="343.66666666666669"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-fD-ef3" userLabel="Translation Stack View">
+                                                <rect key="frame" x="0.0" y="392.66666666666674" width="373" height="372.33333333333326"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="H8D-6i-7oE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="372.33333333333331"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-0C-Qa3">
+                                                                <rect key="frame" x="0.0" y="0.0" width="373" height="19"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rLH-gA-eXH">
+                                                                <rect key="frame" x="0.0" y="28" width="373" height="344.33333333333331"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="textColor" systemColor="labelColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-fD-ef3" userLabel="Translation Stack View">
-                                        <rect key="frame" x="0.0" y="391" width="373" height="371"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xdr-an-xzO" userLabel="Buttons Stack View">
+                                        <rect key="frame" x="0.0" y="785" width="373" height="22"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-0C-Qa3">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLH-gA-eXH">
-                                                <rect key="frame" x="0.0" y="34" width="373" height="337"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-eC-1EZ" userLabel="Hear Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="22"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="speaker.wave.2" catalog="system"/>
+                                                <connections>
+                                                    <action selector="hearTranslationPressed:" destination="W3F-9Z-cfh" eventType="touchUpInside" id="S0k-ew-rM8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75F-mU-Inp" userLabel="Delete Button">
+                                                <rect key="frame" x="186.66666666666663" y="0.0" width="186.33333333333337" height="22"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="trash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="deleteTranslationPressed:" destination="W3F-9Z-cfh" eventType="touchUpInside" id="ej8-8y-h0z"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iAd-nL-gta"/>
                         <color key="backgroundColor" red="0.72520500421524048" green="0.87607848644256592" blue="0.98051685094833374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iAd-nL-gta" firstAttribute="bottom" secondItem="dSv-4n-Qzh" secondAttribute="bottom" constant="30" id="6FA-Hf-WuS"/>
+                            <constraint firstItem="iAd-nL-gta" firstAttribute="bottom" secondItem="dSv-4n-Qzh" secondAttribute="bottom" constant="10" id="6FA-Hf-WuS"/>
                             <constraint firstItem="dSv-4n-Qzh" firstAttribute="leading" secondItem="iAd-nL-gta" secondAttribute="leading" constant="10" id="HQ9-kJ-cmC"/>
                             <constraint firstItem="iAd-nL-gta" firstAttribute="trailing" secondItem="dSv-4n-Qzh" secondAttribute="trailing" constant="10" id="a0b-9W-S1J"/>
-                            <constraint firstItem="dSv-4n-Qzh" firstAttribute="top" secondItem="iAd-nL-gta" secondAttribute="top" constant="50" id="vbv-0d-keH"/>
+                            <constraint firstItem="dSv-4n-Qzh" firstAttribute="top" secondItem="iAd-nL-gta" secondAttribute="top" constant="25" id="vbv-0d-keH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R61-GC-Nn9"/>
                     <connections>
-                        <outlet property="originalText" destination="Sl4-mR-bVf" id="YOT-ao-1ZB"/>
-                        <outlet property="sourceLanguageFlag" destination="Ugn-fQ-y5k" id="m6F-a8-wWR"/>
-                        <outlet property="translationLanguageFlag" destination="brc-0C-Qa3" id="psU-MC-isr"/>
-                        <outlet property="translationText" destination="rLH-gA-eXH" id="qJG-Sc-CoO"/>
+                        <outlet property="deleteTranslationButton" destination="75F-mU-Inp" id="tIz-uT-d01"/>
+                        <outlet property="hearTranslationButton" destination="nbt-eC-1EZ" id="3hZ-FU-MMf"/>
+                        <outlet property="originalTextView" destination="Sl4-mR-bVf" id="YOT-ao-1ZB"/>
+                        <outlet property="sourceTitleLabel" destination="Ugn-fQ-y5k" id="m6F-a8-wWR"/>
+                        <outlet property="translationTextView" destination="rLH-gA-eXH" id="qJG-Sc-CoO"/>
+                        <outlet property="translationTitleLabel" destination="brc-0C-Qa3" id="psU-MC-isr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZT-to-Bz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -609,6 +644,7 @@
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

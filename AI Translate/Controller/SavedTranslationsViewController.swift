@@ -19,9 +19,9 @@ class SavedTranslationsViewController: UIViewController {
     
     var translations: [Translation] = []
     
-    var sourceFlag: String?
+    var sourceLanguage: String?
     var sourceText: String?
-    var targetFlag: String?
+    var targetLanguage: String?
     var translationText: String?
     
     override func viewDidLoad() {
@@ -123,10 +123,11 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let translation = translations[indexPath.row]
-        sourceFlag = translation.sourceLang
+        sourceLanguage = translation.sourceLang
         sourceText = translation.originalText
-        targetFlag = translation.targetlang
+        targetLanguage = translation.targetlang
         translationText = translation.finalText
+        
         performSegue(withIdentifier: K.Segues.savedToDetailed, sender: self)
     }
 
@@ -134,10 +135,10 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         if segue.identifier == K.Segues.savedToDetailed {
             
             let destinationVC = segue.destination as? DetailedViewController
-            destinationVC?.textForSourceFlag = "\(translationManager.assignFlag(sourceFlag!)) \(sourceFlag!)"
-            destinationVC?.textForOriginalText = sourceText
-            destinationVC?.textForTranslationFlag = "\(translationManager.assignFlag(targetFlag!)) \(targetFlag!)"
-            destinationVC?.textForTranslationText = translationText
+            destinationVC?.sourceLanguage = sourceLanguage!
+            destinationVC?.sourceText = sourceText
+            destinationVC?.targetLanguage = targetLanguage!
+            destinationVC?.translationText = translationText
 
             if let sheet = destinationVC?.sheetPresentationController {
                 sheet.detents = [.medium()]
