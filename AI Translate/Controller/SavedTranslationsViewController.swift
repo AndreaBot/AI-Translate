@@ -23,6 +23,7 @@ class SavedTranslationsViewController: UIViewController {
     var sourceText: String?
     var targetLanguage: String?
     var translationText: String?
+    var entryNumber: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +32,13 @@ class SavedTranslationsViewController: UIViewController {
         tableView.register(UINib(nibName: K.TableView.cellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.cellIdentifier)
         loadTranslations()
     }
-    
-    
+
     func loadTranslations() {
         db.collection(Auth.auth().currentUser!.uid)
             .order(by: K.Firestore.dateField, descending: true)
-            .getDocuments { (querySnapshot, error) in
+            .addSnapshotListener { [self] (querySnapshot, error) in
                 
-                self.translations = []
+                translations = []
                 
                 if let e = error {
                     print("the was an issue retrieving data \(e)")
@@ -53,7 +53,7 @@ class SavedTranslationsViewController: UIViewController {
                             {
                                 
                                 let newTranslation = Translation(sourceLang: sourceLang, originalText: originalText, targetlang: targetLang, finalText: translatedText)
-                                self.translations.append(newTranslation)
+                                translations.append(newTranslation)
                                 
                                 
                                 DispatchQueue.main.async {
@@ -100,13 +100,14 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             db.collection(Auth.auth().currentUser!.uid)
-                .getDocuments { (querySnapshot, error) in
+                .order(by: K.Firestore.dateField, descending: true)
+                .getDocuments { [self] (querySnapshot, error) in
                     if let e = error {
                         print(e)
                     } else {
                         if let snapshotDocuments = querySnapshot?.documents {
                             let documentID = snapshotDocuments[indexPath.row].documentID
-                            self.db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { err in
+                            db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { err in
                                 if let err = err {
                                     print("Error removing document: \(err)")
                                 } else {
@@ -127,6 +128,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         sourceText = translation.originalText
         targetLanguage = translation.targetlang
         translationText = translation.finalText
+        entryNumber = indexPath.row
         
         performSegue(withIdentifier: K.Segues.savedToDetailed, sender: self)
     }
@@ -139,6 +141,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             destinationVC?.sourceText = sourceText
             destinationVC?.targetLanguage = targetLanguage!
             destinationVC?.translationText = translationText
+            destinationVC?.entryNumber = entryNumber
 
             if let sheet = destinationVC?.sheetPresentationController {
                 sheet.detents = [.medium()]
@@ -148,6 +151,4 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             }
         }
     }
-    
-   
 }

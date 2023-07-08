@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class DetailedViewController: UIViewController {
     
@@ -21,10 +24,12 @@ class DetailedViewController: UIViewController {
     var sourceText: String?
     var targetLanguage: String?
     var translationText: String?
+    var entryNumber: Int?
     
     let translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
     var player: AVAudioPlayer?
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,11 +67,30 @@ class DetailedViewController: UIViewController {
     
     @IBAction func hearTranslationPressed(_ sender: UIButton) {
         textReaderManager.generateVoice()
-        
     }
     
     
     @IBAction func deleteTranslationPressed(_ sender: UIButton) {
+        
+        db.collection(Auth.auth().currentUser!.uid)
+            .order(by: K.Firestore.dateField, descending: true)
+            .getDocuments { [self] (querySnapshot, error) in
+                if let e = error {
+                    print(e)
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        let documentID = snapshotDocuments[entryNumber!].documentID
+                        db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { [self] err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
+                                dismiss(animated: true)
+                            }
+                        }
+                    }
+                }
+            }
     }
 }
 
