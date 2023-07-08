@@ -19,6 +19,11 @@ class SavedTranslationsViewController: UIViewController {
     
     var translations: [Translation] = []
     
+    var sourceFlag: String?
+    var sourceText: String?
+    var targetFlag: String?
+    var translationText: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -114,5 +119,34 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             tableView.endUpdates()
         }
     }
-}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let translation = translations[indexPath.row]
+        sourceFlag = translation.sourceLang
+        sourceText = translation.originalText
+        targetFlag = translation.targetlang
+        translationText = translation.finalText
+        performSegue(withIdentifier: K.Segues.savedToDetailed, sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.savedToDetailed {
+            
+            let destinationVC = segue.destination as? DetailedViewController
+            destinationVC?.textForSourceFlag = "\(translationManager.assignFlag(sourceFlag!)) \(sourceFlag!)"
+            destinationVC?.textForOriginalText = sourceText
+            destinationVC?.textForTranslationFlag = "\(translationManager.assignFlag(targetFlag!)) \(targetFlag!)"
+            destinationVC?.textForTranslationText = translationText
+
+            if let sheet = destinationVC?.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.preferredCornerRadius = 20
+                sheet.prefersGrabberVisible = true
+
+            }
+        }
+    }
+    
+   
+}

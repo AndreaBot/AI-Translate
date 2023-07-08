@@ -22,11 +22,11 @@
                         <rect key="frame" x="2" y="2" width="306" height="40"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gku-h4-u1c" userLabel="Main Stack View">
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gku-h4-u1c" userLabel="Main Stack View">
                         <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qky-4H-9ce" userLabel="Source Stack View">
-                                <rect key="frame" x="0.0" y="10" width="149.33333333333334" height="24"/>
+                                <rect key="frame" x="0.0" y="10" width="152.66666666666666" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvg-Ql-TSK" userLabel="Source Flag">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
@@ -38,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="1" translatesAutoresizingMaskIntoConstraints="NO" id="EmC-Wi-32x" userLabel="Source Text">
-                                        <rect key="frame" x="44.999999999999993" y="0.0" width="104.33333333333331" height="24"/>
+                                        <rect key="frame" x="45.000000000000007" y="0.0" width="107.66666666666669" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,16 +46,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fO8-Bo-lxi" userLabel="Target Stack View">
-                                <rect key="frame" x="154.33333333333337" y="10" width="155.66666666666663" height="24"/>
+                                <rect key="frame" x="157.66666666666663" y="10" width="152.33333333333337" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="4dr-e3-FUs" userLabel="Translation Text">
-                                        <rect key="frame" x="0.0" y="0.0" width="110.66666666666667" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="107.33333333333333" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urt-Bd-zbe" userLabel="Target Flag">
-                                        <rect key="frame" x="115.66666666666666" y="0.0" width="40" height="24"/>
+                                        <rect key="frame" x="112.33333333333334" y="0.0" width="40" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="G8J-ni-IZN"/>
                                         </constraints>

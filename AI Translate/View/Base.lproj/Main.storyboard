@@ -501,11 +501,85 @@
                     <navigationItem key="navigationItem" id="Bzo-u8-C4C"/>
                     <connections>
                         <outlet property="tableView" destination="B3F-Po-2SE" id="owQ-M0-4HS"/>
+                        <segue destination="W3F-9Z-cfh" kind="showDetail" identifier="goToDetailed" id="1gc-zp-AxG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsS-ud-tQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1547" y="27"/>
+        </scene>
+        <!--Detailed View Controller-->
+        <scene sceneID="o8i-ox-1gO">
+            <objects>
+                <viewController id="W3F-9Z-cfh" customClass="DetailedViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SlZ-3W-Q8y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-4n-Qzh">
+                                <rect key="frame" x="10" y="50" width="373" height="762"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-Bu-9Ge" userLabel="Source Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="371"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugn-fQ-y5k">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-mR-bVf">
+                                                <rect key="frame" x="0.0" y="34" width="373" height="337"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hpT-fD-ef3" userLabel="Translation Stack View">
+                                        <rect key="frame" x="0.0" y="391" width="373" height="371"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brc-0C-Qa3">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLH-gA-eXH">
+                                                <rect key="frame" x="0.0" y="34" width="373" height="337"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iAd-nL-gta"/>
+                        <color key="backgroundColor" red="0.72520500421524048" green="0.87607848644256592" blue="0.98051685094833374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iAd-nL-gta" firstAttribute="bottom" secondItem="dSv-4n-Qzh" secondAttribute="bottom" constant="30" id="6FA-Hf-WuS"/>
+                            <constraint firstItem="dSv-4n-Qzh" firstAttribute="leading" secondItem="iAd-nL-gta" secondAttribute="leading" constant="10" id="HQ9-kJ-cmC"/>
+                            <constraint firstItem="iAd-nL-gta" firstAttribute="trailing" secondItem="dSv-4n-Qzh" secondAttribute="trailing" constant="10" id="a0b-9W-S1J"/>
+                            <constraint firstItem="dSv-4n-Qzh" firstAttribute="top" secondItem="iAd-nL-gta" secondAttribute="top" constant="50" id="vbv-0d-keH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="R61-GC-Nn9"/>
+                    <connections>
+                        <outlet property="originalText" destination="Sl4-mR-bVf" id="YOT-ao-1ZB"/>
+                        <outlet property="sourceLanguageFlag" destination="Ugn-fQ-y5k" id="m6F-a8-wWR"/>
+                        <outlet property="translationLanguageFlag" destination="brc-0C-Qa3" id="psU-MC-isr"/>
+                        <outlet property="translationText" destination="rLH-gA-eXH" id="qJG-Sc-CoO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RZT-to-Bz8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2366" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZJ0-Wr-0Xp">
@@ -527,14 +601,17 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BEK-Om-WlE"/>
-        <segue reference="6a9-85-k7I"/>
+        <segue reference="0Nd-9E-7UK"/>
+        <segue reference="21e-I8-GTY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AITranslateBackgroud" width="810" height="1440"/>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

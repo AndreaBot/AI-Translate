@@ -28,6 +28,7 @@
 		62C24E612A4E2FD000A1B334 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E602A4E2FD000A1B334 /* Constants.swift */; };
 		62C24E642A4E347900A1B334 /* TranslationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E622A4E347900A1B334 /* TranslationCell.swift */; };
 		62C24E652A4E347900A1B334 /* TranslationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C24E632A4E347900A1B334 /* TranslationCell.xib */; };
+		62C24E6D2A58A87B00A1B334 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E6C2A58A87B00A1B334 /* DetailedViewController.swift */; };
 		DF2FC574E8981CD2EA8CEABD /* Pods_AI_Translate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B580202C589E2A2AFEF74E0 /* Pods_AI_Translate.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		62C24E602A4E2FD000A1B334 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62C24E622A4E347900A1B334 /* TranslationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationCell.swift; sourceTree = "<group>"; };
 		62C24E632A4E347900A1B334 /* TranslationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TranslationCell.xib; sourceTree = "<group>"; };
+		62C24E6C2A58A87B00A1B334 /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		8A713096CDEC5475C7CA3652 /* Pods-AI Translate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Translate.debug.xcconfig"; path = "Target Support Files/Pods-AI Translate/Pods-AI Translate.debug.xcconfig"; sourceTree = "<group>"; };
 		A3B3D10B5DAA06C1F025EFC2 /* Pods-AI Translate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AI Translate.release.xcconfig"; path = "Target Support Files/Pods-AI Translate/Pods-AI Translate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				62C24E582A4CC6B600A1B334 /* LoginViewController.swift */,
 				626FA7262A14081A00C0F9AF /* TranslatorViewController.swift */,
 				62C24E5C2A4E2EC600A1B334 /* SavedTranslationsViewController.swift */,
+				62C24E6C2A58A87B00A1B334 /* DetailedViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				62C24E572A4CC6A500A1B334 /* RegisterViewController.swift in Sources */,
 				62C24E5D2A4E2EC600A1B334 /* SavedTranslationsViewController.swift in Sources */,
+				62C24E6D2A58A87B00A1B334 /* DetailedViewController.swift in Sources */,
 				626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */,
 				626FA7372A14083100C0F9AF /* TranslationData.swift in Sources */,
 				62B783A22A1D699600BB9870 /* ReadData.swift in Sources */,

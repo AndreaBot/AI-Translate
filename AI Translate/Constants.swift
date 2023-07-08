@@ -14,6 +14,7 @@ struct K {
         static let registerToTranslator = "registerSuccess"
         static let loginToTranslator = "loginSuccess"
         static let translatorToSaved = "goToSavedTranslations"
+        static let savedToDetailed = "goToDetailed"
     }
     
     struct TableView {
