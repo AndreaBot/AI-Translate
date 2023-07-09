@@ -31,8 +31,10 @@ class DetailedViewController: UIViewController {
     var player: AVAudioPlayer?
     let db = Firestore.firestore()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(entryNumber!)
         setUI()
         setTTSParameters()
         textReaderManager.delegate = self
@@ -91,6 +93,7 @@ class DetailedViewController: UIViewController {
                     }
                 }
             }
+     
     }
 }
 

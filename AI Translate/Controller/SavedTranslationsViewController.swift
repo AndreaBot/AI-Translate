@@ -24,6 +24,8 @@ class SavedTranslationsViewController: UIViewController {
     var targetLanguage: String?
     var translationText: String?
     var entryNumber: Int?
+    var count: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +34,14 @@ class SavedTranslationsViewController: UIViewController {
         tableView.register(UINib(nibName: K.TableView.cellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.cellIdentifier)
         loadTranslations()
     }
-
+    
     func loadTranslations() {
         db.collection(Auth.auth().currentUser!.uid)
             .order(by: K.Firestore.dateField, descending: true)
             .addSnapshotListener { [self] (querySnapshot, error) in
-                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData() //TableView reloads correctly when last cell is deleted in DetailedVC
+                }
                 translations = []
                 
                 if let e = error {
@@ -84,7 +88,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         cell.targetFlag.text = translationManager.assignFlag(translation.targetlang)
         
         cell.backgroundColor = .clear
-            
+        
         return cell
     }
     
@@ -132,7 +136,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         
         performSegue(withIdentifier: K.Segues.savedToDetailed, sender: self)
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.savedToDetailed {
             
@@ -142,12 +146,11 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             destinationVC?.targetLanguage = targetLanguage!
             destinationVC?.translationText = translationText
             destinationVC?.entryNumber = entryNumber
-
+            
             if let sheet = destinationVC?.sheetPresentationController {
                 sheet.detents = [.medium()]
                 sheet.preferredCornerRadius = 20
                 sheet.prefersGrabberVisible = true
-
             }
         }
     }
