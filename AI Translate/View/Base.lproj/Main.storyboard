@@ -237,6 +237,78 @@
             </objects>
             <point key="canvasLocation" x="-118" y="422"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="s1l-ra-OIP">
+            <objects>
+                <viewController id="GhG-Di-vdg" customClass="MenuViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YhE-NQ-5r4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nV6-7c-q2m">
+                                <rect key="frame" x="15" y="10" width="363" height="832"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y48-NT-S7N">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="274"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" red="0.0011466443538665771" green="0.0015412847278639674" blue="0.001725182868540287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title=" Saved Translations">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="savedTranslationsPressed:" destination="GhG-Di-vdg" eventType="touchUpInside" id="Cd8-6v-LqB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-ur-j77">
+                                        <rect key="frame" x="0.0" y="279" width="363" height="274"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title=" Logout">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="GhG-Di-vdg" eventType="touchUpInside" id="bMO-sc-Mx9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-hf-8UI">
+                                        <rect key="frame" x="0.0" y="558" width="363" height="274"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title=" Delete account">
+                                            <color key="titleColor" systemColor="systemBlueColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteAccountPressed:" destination="GhG-Di-vdg" eventType="touchUpInside" id="WsG-E3-UDd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ony-Xv-j3m"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="nV6-7c-q2m" firstAttribute="top" secondItem="Ony-Xv-j3m" secondAttribute="top" constant="10" id="3Fu-E1-agP"/>
+                            <constraint firstItem="Ony-Xv-j3m" firstAttribute="bottom" secondItem="nV6-7c-q2m" secondAttribute="bottom" id="hBi-vr-Rrl"/>
+                            <constraint firstItem="nV6-7c-q2m" firstAttribute="leading" secondItem="Ony-Xv-j3m" secondAttribute="leading" constant="15" id="lqH-sN-1xN"/>
+                            <constraint firstItem="Ony-Xv-j3m" firstAttribute="trailing" secondItem="nV6-7c-q2m" secondAttribute="trailing" constant="15" id="mwh-ds-u6P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteAccountButton" destination="6Pz-hf-8UI" id="4JM-I1-8gz"/>
+                        <outlet property="logoutButton" destination="xDj-ur-j77" id="xxS-nh-yy5"/>
+                        <outlet property="savedTranslationsButton" destination="Y48-NT-S7N" id="T3f-gg-d4G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvR-nA-noC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793.12977099236639" y="718.30985915492965"/>
+        </scene>
         <!--Translator View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -426,30 +498,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OPv-w0-6Ll">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Logout" style="done" id="8Zd-ne-MXC">
-                                <connections>
-                                    <action selector="logoutUser:" destination="BYZ-38-t0r" id="Ean-0y-8k6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="My Translations" id="Poz-FV-jeJ">
-                                <connections>
-                                    <action selector="myTranslationsPressed:" destination="BYZ-38-t0r" id="leA-kn-Jy0"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="ellipsis" catalog="system" id="5qN-Tt-oQG">
+                            <connections>
+                                <action selector="openMenu:" destination="BYZ-38-t0r" id="EYS-Dq-XaD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="hearTranslationButton" destination="JKB-Fy-8Vx" id="K1i-ez-GhQ"/>
-                        <outlet property="logoutButton" destination="8Zd-ne-MXC" id="8Wa-ZD-iat"/>
-                        <outlet property="myTranslationButton" destination="Poz-FV-jeJ" id="tFj-sg-IC3"/>
                         <outlet property="saveTranslationButton" destination="WZ8-dC-8he" id="FEs-tg-2Js"/>
                         <outlet property="sourcePicker" destination="k3k-xJ-57S" id="I2K-RC-h13"/>
                         <outlet property="targetPicker" destination="ZSm-Jq-ROk" id="BBv-bf-g2b"/>
                         <outlet property="textToTranslate" destination="Te4-vG-sz3" id="FfZ-NJ-bbz"/>
                         <outlet property="translateButton" destination="nNF-76-FRz" id="4rZ-TK-8jt"/>
                         <outlet property="translatedText" destination="Jpr-Z7-e1x" id="h8n-c6-Hry"/>
-                        <segue destination="Eat-Rv-RvB" kind="show" identifier="goToSavedTranslations" id="AsH-fN-b2e"/>
+                        <segue destination="Eat-Rv-RvB" kind="show" identifier="goToSavedTranslations" id="Hjx-GJ-sh8"/>
+                        <segue destination="GhG-Di-vdg" kind="presentation" identifier="openMenu" id="07T-YD-o1F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -471,10 +535,10 @@
                                 <rect key="frame" x="10" y="123" width="373" height="695"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rMl-wS-vBt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="translationCell" id="FOd-6E-uGV" customClass="TranslationCell" customModule="AI_Translate" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="373" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rMl-wS-vBt" id="rWg-Y4-bcx">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FOd-6E-uGV" id="AHY-jE-J8Z">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -639,6 +703,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AITranslateBackgroud" width="810" height="1440"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
@@ -648,6 +713,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

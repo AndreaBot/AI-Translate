@@ -15,11 +15,12 @@ struct K {
         static let loginToTranslator = "loginSuccess"
         static let translatorToSaved = "goToSavedTranslations"
         static let savedToDetailed = "goToDetailed"
+        static let openMenu = "openMenu"
     }
     
     struct TableView {
-        static let cellIdentifier = "tranlsationCell"
-        static let cellNibName = "TranslationCell"
+        static let translationCellIdentifier = "translationCell"
+        static let translationCellNibName = "TranslationCell"
     }
     
     struct Firestore {

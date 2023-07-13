@@ -24,14 +24,17 @@ class SavedTranslationsViewController: UIViewController {
     var targetLanguage: String?
     var translationText: String?
     var entryNumber: Int?
-    var count: Int?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "My Translations"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
+        
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: K.TableView.cellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.cellIdentifier)
+        tableView.register(UINib(nibName: K.TableView.translationCellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.translationCellNibName)
         loadTranslations()
     }
     
@@ -59,7 +62,6 @@ class SavedTranslationsViewController: UIViewController {
                                 let newTranslation = Translation(sourceLang: sourceLang, originalText: originalText, targetlang: targetLang, finalText: translatedText)
                                 translations.append(newTranslation)
                                 
-                                
                                 DispatchQueue.main.async {
                                     self.tableView.reloadData()
                                 }
@@ -81,7 +83,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let translation = translations[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableView.cellIdentifier, for: indexPath) as! TranslationCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.TableView.translationCellIdentifier, for: indexPath) as! TranslationCell
         cell.sourceFlag.text = translationManager.assignFlag(translation.sourceLang)
         cell.sourceText.text = translation.originalText
         cell.translationText.text = translation.finalText

@@ -20,14 +20,13 @@ class TranslatorViewController: UIViewController {
     @IBOutlet weak var translatedText: UITextView!
     @IBOutlet weak var hearTranslationButton: UIButton!
     @IBOutlet weak var saveTranslationButton: UIButton!
-    @IBOutlet weak var logoutButton: UIBarButtonItem!
-    @IBOutlet weak var myTranslationButton : UIBarButtonItem!
     
     let db = Firestore.firestore()
     
     var translationManager = TranslationManager()
     var textReaderManager = TextReaderManager()
     var player: AVAudioPlayer?
+    let button = UIButton()
     
     var chosenSourceLang: String!
     var chosenTargetLang: String!
@@ -47,15 +46,13 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        if Auth.auth().currentUser == nil {
-            navigationItem.hidesBackButton = false
-            logoutButton.isHidden = true
-        } else {
-            navigationItem.hidesBackButton = true
-            logoutButton.isHidden = false
-        }
+        title = "AI Translate"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         
+        if Auth.auth().currentUser != nil {
+            navigationItem.hidesBackButton = true
+        }
         saveTranslationButton.isEnabled = false
         hearTranslationButton.isEnabled = false
         translationManager.delegate = self
@@ -63,7 +60,7 @@ class TranslatorViewController: UIViewController {
         targetPicker.delegate = self
         textToTranslate.delegate = self
         textReaderManager.delegate = self
-
+        
         textToTranslate.layer.cornerRadius = 10
         translatedText.layer.cornerRadius = 10
         UITextView.appearance().backgroundColor = UIColor(white: 1, alpha: 1)
@@ -81,15 +78,9 @@ class TranslatorViewController: UIViewController {
         saveTranslationButton.tintColor = .white
     }
     
-    @IBAction func logoutUser(_ sender: UIBarButtonItem) {
-        
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+    
+    @IBAction func openMenu(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: K.Segues.openMenu, sender: self)
     }
     
     @IBAction func saveTranslationPressed(_ sender: UIButton) {
@@ -104,7 +95,7 @@ class TranslatorViewController: UIViewController {
                     K.Firestore.translation: finalText,
                     K.Firestore.dateField: Date().timeIntervalSince1970
                 ])
-                 { (error) in
+                { (error) in
                     if let e = error {
                         print("there was an error adding data to firestore, \(e)")
                     } else {
@@ -117,16 +108,21 @@ class TranslatorViewController: UIViewController {
         }
     }
     
-    @IBAction func myTranslationsPressed(_ sender: UIBarButtonItem) {
-        
-        if Auth.auth().currentUser == nil {
-            showAlert(with: "You need to be logged in as an user to access saved translations.")
-        } else {
-            performSegue(withIdentifier: K.Segues.translatorToSaved, sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.openMenu {
+            
+            let destinationVC = segue.destination as? MenuViewController
+            destinationVC?.delegate = self
+            
+            if let sheet = destinationVC?.sheetPresentationController {
+                sheet.detents = [.custom(resolver: { context in
+                    return context.maximumDetentValue * 0.25
+                })]
+                sheet.preferredCornerRadius = 10
+            }
         }
     }
 }
-
 
 //MARK: - TranslationManagerDelegate
 
@@ -246,13 +242,74 @@ extension TranslatorViewController: TextReaderManagerDelegate {
             print("Error: \(error.localizedDescription)")
         }
     }
-
+    
     func didFail(_ error: Error) {
         print(error)
     }
-
+    
     @IBAction func hearTranslation(_ sender: UIButton) {
         
-            textReaderManager.generateVoice()
+        textReaderManager.generateVoice()
     }
 }
+
+// MARK: - MenuViewControllerDelegate
+
+extension TranslatorViewController: MenuViewControllerDelegate {
+
+    func goToSavedTranslations() {
+        dismiss(animated: true)
+        if Auth.auth().currentUser == nil {
+            showAlert(with: "You need to be logged in as an user to access saved translations.")
+        } else {
+            performSegue(withIdentifier: K.Segues.translatorToSaved, sender: self)
+        }
+    }
+    
+    func logoutConfirmation() {
+        dismiss(animated: true)
+        let confirmMessage = UIAlertController(title: "Logout", message: "Are you sure you want to log out of your account?", preferredStyle: .alert)
+        confirmMessage.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { logoutFunc in
+            self.logoutUser()
+        }))
+        confirmMessage.addAction(UIAlertAction(title: "Cancel", style: .default))
+        
+        present(confirmMessage, animated: true)
+    }
+    
+    func logoutUser() {
+        //dismiss(animated: true)
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+    }
+    func deleteConfirmation() {
+        dismiss(animated: true)
+        let confirmMessage = UIAlertController(title: "Delete account", message: "Are you sure you want to delete your account? This cannot be undone.", preferredStyle: .alert)
+        confirmMessage.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { deleteFunc in
+            self.deleteAccount()
+        }))
+        confirmMessage.addAction(UIAlertAction(title: "Cancel", style: .default))
+        
+        present(confirmMessage, animated: true)
+    }
+    
+    func deleteAccount() {
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+          if let error = error {
+              print(error.localizedDescription)
+          } else {
+              self.navigationController?.popToRootViewController(animated: true)
+          }
+        }
+    }
+    
+}
+
+
+

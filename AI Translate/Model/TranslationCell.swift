@@ -17,8 +17,8 @@ class TranslationCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.cornerRadius = 18
-        containerView.backgroundColor = .white
+        //containerView.layer.cornerRadius = 18
+       // containerView.backgroundColor = .white
         
     }
 
