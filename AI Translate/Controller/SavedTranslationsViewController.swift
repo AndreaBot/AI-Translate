@@ -24,7 +24,7 @@ class SavedTranslationsViewController: UIViewController {
     var targetLanguage: String?
     var translationText: String?
     var entryNumber: Int?
-    
+    var indexPathValue: [IndexPath]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +34,15 @@ class SavedTranslationsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: K.TableView.translationCellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.translationCellNibName)
+        tableView.register(UINib(nibName: K.TableView.translationCellNibName, bundle: nil), forCellReuseIdentifier: K.TableView.translationCellIdentifier)
         loadTranslations()
     }
     
     func loadTranslations() {
         db.collection(Auth.auth().currentUser!.uid)
             .order(by: K.Firestore.dateField, descending: true)
-            .addSnapshotListener { [self] (querySnapshot, error) in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData() //TableView reloads correctly when last cell is deleted in DetailedVC
-                }
+            .getDocuments { [self] (querySnapshot, error) in
+                
                 translations = []
                 
                 if let e = error {
@@ -102,29 +100,32 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         if editingStyle == .delete {
             
             tableView.beginUpdates()
-            translations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            db.collection(Auth.auth().currentUser!.uid)
-                .order(by: K.Firestore.dateField, descending: true)
-                .getDocuments { [self] (querySnapshot, error) in
-                    if let e = error {
-                        print(e)
-                    } else {
-                        if let snapshotDocuments = querySnapshot?.documents {
-                            let documentID = snapshotDocuments[indexPath.row].documentID
-                            db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { err in
-                                if let err = err {
-                                    print("Error removing document: \(err)")
-                                } else {
-                                    print("Document successfully removed!")
-                                }
+            firestoreDelete(indexPath.row, [indexPath])
+            tableView.endUpdates()
+        }
+    }
+    
+    func firestoreDelete(_ indexPathRow: Int, _ indexPath: [IndexPath]) {
+        translations.remove(at: indexPathRow)
+        tableView.deleteRows(at: indexPath, with: .fade)
+        db.collection(Auth.auth().currentUser!.uid)
+            .order(by: K.Firestore.dateField, descending: true)
+            .getDocuments { [self] (querySnapshot, error) in
+                if let e = error {
+                    print(e)
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        let documentID = snapshotDocuments[indexPathRow].documentID
+                        db.collection(Auth.auth().currentUser!.uid).document(documentID).delete() { err in
+                            if let err = err {
+                                print("Error removing document: \(err)")
+                            } else {
+                                print("Document successfully removed!")
                             }
                         }
                     }
                 }
-            tableView.endUpdates()
-        }
+            }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,6 +136,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         targetLanguage = translation.targetlang
         translationText = translation.finalText
         entryNumber = indexPath.row
+        indexPathValue = [indexPath]
         
         performSegue(withIdentifier: K.Segues.savedToDetailed, sender: self)
     }
@@ -147,7 +149,9 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
             destinationVC?.sourceText = sourceText
             destinationVC?.targetLanguage = targetLanguage!
             destinationVC?.translationText = translationText
-            destinationVC?.entryNumber = entryNumber
+            destinationVC?.indexPathRow = entryNumber
+            destinationVC?.indexPathValue = indexPathValue
+            destinationVC?.delegate = self
             
             if let sheet = destinationVC?.sheetPresentationController {
                 sheet.detents = [.medium()]
@@ -155,5 +159,12 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
                 sheet.prefersGrabberVisible = true
             }
         }
+    }
+}
+
+extension SavedTranslationsViewController: DetailedViewControllerDelegate {
+    func deleteFromFirestore(_ indexPathRow: Int, _ indexPath: [IndexPath]) {
+        dismiss(animated: true)
+        firestoreDelete(indexPathRow, indexPath)
     }
 }
