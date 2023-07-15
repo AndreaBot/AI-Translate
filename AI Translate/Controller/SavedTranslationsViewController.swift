@@ -29,7 +29,7 @@ class SavedTranslationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Translations"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         
         tableView.dataSource = self
@@ -87,6 +87,8 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
         cell.translationText.text = translation.finalText
         cell.targetFlag.text = translationManager.assignFlag(translation.targetlang)
         
+        cell.sourceText.textColor = .black
+        cell.translationText.textColor = .black
         cell.backgroundColor = .clear
         
         return cell
@@ -163,6 +165,7 @@ extension SavedTranslationsViewController: UITableViewDataSource, UITableViewDel
 }
 
 extension SavedTranslationsViewController: DetailedViewControllerDelegate {
+    
     func deleteFromFirestore(_ indexPathRow: Int, _ indexPath: [IndexPath]) {
         dismiss(animated: true)
         firestoreDelete(indexPathRow, indexPath)

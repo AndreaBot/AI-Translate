@@ -48,10 +48,16 @@ class DetailedViewController: UIViewController {
     func setUI() {
         originalTextView.layer.cornerRadius = 10
         translationTextView.layer.cornerRadius = 10
+        
         sourceTitleLabel.text = "\(translationManager.assignFlag(sourceLanguage!)) \(sourceLanguage!)"
+        sourceTitleLabel.textColor = .black
+        
         originalTextView.text = sourceText
+        
         translationTitleLabel.text = "\(translationManager.assignFlag(targetLanguage!)) \(targetLanguage!)"
+        translationTitleLabel.textColor = .black
         translationTextView.text = translationText
+        
         hearTranslationButton.tintColor = .black
         deleteTranslationButton.tintColor = .black
     }

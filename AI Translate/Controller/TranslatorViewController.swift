@@ -28,8 +28,8 @@ class TranslatorViewController: UIViewController {
     var player: AVAudioPlayer?
     let button = UIButton()
     
-    var chosenSourceLang: String!
-    var chosenTargetLang: String!
+    var chosenSourceLang: String?
+    var chosenTargetLang: String?
     
     func showAlert(with message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
@@ -46,8 +46,9 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UINavigationBar.appearance().tintColor = .white
         title = "AI Translate"
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         
         if Auth.auth().currentUser != nil {
@@ -190,13 +191,13 @@ extension TranslatorViewController: UIPickerViewDataSource, UIPickerViewDelegate
             translationManager.parameters["source"] = translationManager.convertSourceLanguage(chosenSourceLang!)
         } else {
             chosenTargetLang = translationManager.targetOptions[row]
-            translationManager.parameters["target"] = translationManager.convertTargetLanguage(chosenTargetLang)
+            translationManager.parameters["target"] = translationManager.convertTargetLanguage(chosenTargetLang!)
             
                var parameters = self.textReaderManager.parameters
                if var voice = parameters["voice"] as? [String: String] {
-                voice["languageCode"] = textReaderManager.convertVoiceLanguageCode(chosenTargetLang)
-                voice["name"] = textReaderManager.pickVoice(chosenTargetLang)
-                voice["ssmlGender"] = textReaderManager.pickGender(chosenTargetLang)
+                voice["languageCode"] = textReaderManager.convertVoiceLanguageCode(chosenTargetLang!)
+                voice["name"] = textReaderManager.pickVoice(chosenTargetLang!)
+                voice["ssmlGender"] = textReaderManager.pickGender(chosenTargetLang!)
                 parameters["voice"] = voice
                 self.textReaderManager.parameters = parameters
  
@@ -278,7 +279,6 @@ extension TranslatorViewController: MenuViewControllerDelegate {
     }
     
     func logoutUser() {
-        //dismiss(animated: true)
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()

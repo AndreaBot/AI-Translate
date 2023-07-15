@@ -15,15 +15,60 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var showPasswordsButton: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var repeatPasswordLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    let blueColor = CGColor(red: 0, green: 0.4, blue: 1, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showPasswordsButton.tintColor = .white
-        passwordTextField.isSecureTextEntry = true
-        repeatPasswordTextField.isSecureTextEntry = true
+        title = "Register"
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         //emailTextField.delegate = self
+        UINavigationBar.appearance().tintColor = .black
+        setupUI()
     }
     
+    func setupUI() {
+        
+        emailLabel.textColor = .black
+        passwordLabel.textColor = .black
+        repeatPasswordLabel.textColor = .black
+        
+        emailTextField.textColor = .black
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.backgroundColor = .white
+        emailTextField.layer.cornerRadius = 7
+        emailTextField.layer.borderColor = blueColor
+        emailTextField.layer.borderWidth = 2
+        
+        passwordTextField.textColor = .black
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.backgroundColor = .white
+        passwordTextField.layer.cornerRadius = 7
+        passwordTextField.layer.borderColor = blueColor
+        passwordTextField.layer.borderWidth = 2
+        passwordTextField.isSecureTextEntry = true
+        
+        repeatPasswordTextField.textColor = .black
+        repeatPasswordTextField.borderStyle = .roundedRect
+        repeatPasswordTextField.backgroundColor = .white
+        repeatPasswordTextField.layer.cornerRadius = 7
+        repeatPasswordTextField.layer.borderColor = blueColor
+        repeatPasswordTextField.layer.borderWidth = 2
+        repeatPasswordTextField.isSecureTextEntry = true
+        
+        showPasswordsButton.tintColor = .black
+
+        registerButton.setTitleColor(.white, for: .normal)
+        registerButton.backgroundColor = .systemBlue
+        registerButton.layer.cornerRadius = 10
+        
+        
+    }
     
     @IBAction func registerUser(_ sender: UIButton) {
         
