@@ -257,7 +257,7 @@ extension TranslatorViewController: TextReaderManagerDelegate {
 // MARK: - MenuViewControllerDelegate
 
 extension TranslatorViewController: MenuViewControllerDelegate {
-
+    
     func goToSavedTranslations() {
         dismiss(animated: true)
         if Auth.auth().currentUser == nil {
@@ -282,7 +282,10 @@ extension TranslatorViewController: MenuViewControllerDelegate {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
+           self.resetVC()
+            
+            
+
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -301,15 +304,23 @@ extension TranslatorViewController: MenuViewControllerDelegate {
     func deleteAccount() {
         let user = Auth.auth().currentUser
         user?.delete { error in
-          if let error = error {
-              print(error.localizedDescription)
-          } else {
-              self.navigationController?.popToRootViewController(animated: true)
-          }
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.resetVC()
+                }
+            }
         }
-    }
     
+    func resetVC() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: "UserViewController")
+        let navigationController = UINavigationController(rootViewController: targetViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        UINavigationBar.appearance().tintColor = .black
+        self.present(navigationController, animated: true, completion: nil)
+    }
 }
-
 
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6253B4B72A5E041300E2D9BB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4B62A5E041300E2D9BB /* MenuViewController.swift */; };
+		6253B4BB2A64834B00E2D9BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4BA2A64834B00E2D9BB /* HomeViewController.swift */; };
 		626FA7232A14081A00C0F9AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7222A14081A00C0F9AF /* AppDelegate.swift */; };
 		626FA7252A14081A00C0F9AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7242A14081A00C0F9AF /* SceneDelegate.swift */; };
 		626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7262A14081A00C0F9AF /* TranslatorViewController.swift */; };
@@ -20,7 +21,7 @@
 		6299A7952A1C17F000860A14 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6299A7942A1C17F000860A14 /* README.md */; };
 		6299A7972A1D596F00860A14 /* TextReaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6299A7962A1D596F00860A14 /* TextReaderManager.swift */; };
 		62B783A22A1D699600BB9870 /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B783A12A1D699600BB9870 /* ReadData.swift */; };
-		62C24E552A4CC68D00A1B334 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E542A4CC68D00A1B334 /* HomeViewController.swift */; };
+		62C24E552A4CC68D00A1B334 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E542A4CC68D00A1B334 /* UserViewController.swift */; };
 		62C24E572A4CC6A500A1B334 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E562A4CC6A500A1B334 /* RegisterViewController.swift */; };
 		62C24E592A4CC6B600A1B334 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C24E582A4CC6B600A1B334 /* LoginViewController.swift */; };
 		62C24E5B2A4CCAEA00A1B334 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C24E5A2A4CCAEA00A1B334 /* GoogleService-Info.plist */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		3B580202C589E2A2AFEF74E0 /* Pods_AI_Translate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AI_Translate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253B4B62A5E041300E2D9BB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		6253B4BA2A64834B00E2D9BB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		626FA71F2A14081A00C0F9AF /* AI Translate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Translate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		626FA7222A14081A00C0F9AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		626FA7242A14081A00C0F9AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		6299A7942A1C17F000860A14 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6299A7962A1D596F00860A14 /* TextReaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReaderManager.swift; sourceTree = "<group>"; };
 		62B783A12A1D699600BB9870 /* ReadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
-		62C24E542A4CC68D00A1B334 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		62C24E542A4CC68D00A1B334 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		62C24E562A4CC6A500A1B334 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		62C24E582A4CC6B600A1B334 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		62C24E5A2A4CCAEA00A1B334 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -155,7 +157,8 @@
 		626FA73C2A14086200C0F9AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				62C24E542A4CC68D00A1B334 /* HomeViewController.swift */,
+				6253B4BA2A64834B00E2D9BB /* HomeViewController.swift */,
+				62C24E542A4CC68D00A1B334 /* UserViewController.swift */,
 				62C24E562A4CC6A500A1B334 /* RegisterViewController.swift */,
 				62C24E582A4CC6B600A1B334 /* LoginViewController.swift */,
 				626FA7262A14081A00C0F9AF /* TranslatorViewController.swift */,
@@ -288,12 +291,13 @@
 				62C24E572A4CC6A500A1B334 /* RegisterViewController.swift in Sources */,
 				62C24E5D2A4E2EC600A1B334 /* SavedTranslationsViewController.swift in Sources */,
 				62C24E6D2A58A87B00A1B334 /* DetailedViewController.swift in Sources */,
+				6253B4BB2A64834B00E2D9BB /* HomeViewController.swift in Sources */,
 				626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */,
 				626FA7372A14083100C0F9AF /* TranslationData.swift in Sources */,
 				62B783A22A1D699600BB9870 /* ReadData.swift in Sources */,
 				62C24E642A4E347900A1B334 /* TranslationCell.swift in Sources */,
 				6253B4B72A5E041300E2D9BB /* MenuViewController.swift in Sources */,
-				62C24E552A4CC68D00A1B334 /* HomeViewController.swift in Sources */,
+				62C24E552A4CC68D00A1B334 /* UserViewController.swift in Sources */,
 				626FA7392A14084A00C0F9AF /* TranslationManager.swift in Sources */,
 				62C24E612A4E2FD000A1B334 /* Constants.swift in Sources */,
 				6299A7972A1D596F00860A14 /* TextReaderManager.swift in Sources */,

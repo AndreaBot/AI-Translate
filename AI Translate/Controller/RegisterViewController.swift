@@ -28,7 +28,7 @@ class RegisterViewController: UIViewController {
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
         //emailTextField.delegate = self
-        UINavigationBar.appearance().tintColor = .black
+       
         setupUI()
     }
     

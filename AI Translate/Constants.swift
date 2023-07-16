@@ -16,6 +16,8 @@ struct K {
         static let translatorToSaved = "goToSavedTranslations"
         static let savedToDetailed = "goToDetailed"
         static let openMenu = "openMenu"
+        static let showLoginOptions = "showLoginOptions"
+        static let goToMainApp = "goToMainApp"
     }
     
     struct TableView {
