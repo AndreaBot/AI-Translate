@@ -119,7 +119,7 @@
         <scene sceneID="ciU-DI-Tyt">
             <objects>
                 <viewController id="Jaw-DI-3kP" customClass="RegisterViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tPU-gc-H55">
+                    <view key="view" contentMode="scaleToFill" id="tPU-gc-H55" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -135,7 +135,7 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Nl-FRz" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Nl-FRz" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="25.999999999999996" width="363" height="40.666666666666657"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -152,11 +152,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6p4-Xm-ZNl" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6p4-Xm-ZNl" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="25.999999999999996" width="363" height="40.666666666666657"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="one-time-code"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -169,11 +169,11 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-qQ-ehN" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-qQ-ehN" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="26.000000000000053" width="363" height="40.666666666666657"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="new-password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="one-time-code"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -244,7 +244,7 @@
         <scene sceneID="qDo-nO-45w">
             <objects>
                 <viewController id="eyh-7d-YuW" customClass="LoginViewController" customModule="AI_Translate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qdo-mS-9cu">
+                    <view key="view" contentMode="scaleToFill" id="Qdo-mS-9cu" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -284,7 +284,7 @@
                                                         <rect key="frame" x="0.0" y="23" width="363" height="34"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="one-time-code"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>

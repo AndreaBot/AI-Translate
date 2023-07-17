@@ -68,13 +68,6 @@ class TranslatorViewController: UIViewController {
         UITextView.appearance().textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         translateButton.layer.cornerRadius = 30
         
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
-        toolbar.setItems([flexible, doneButton], animated: false)
-        textToTranslate.inputAccessoryView = toolbar
-        
         hearTranslationButton.tintColor = .white
         saveTranslationButton.tintColor = .white
     }

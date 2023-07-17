@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .black
         FirebaseApp.configure()
         let db = Firestore.firestore()
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared.previousNextDisplayMode = .default
+        IQKeyboardManager.shared.keyboardDistanceFromTextField = 15.0
+        
         return true
     }
+   
 
     // MARK: UISceneSession Lifecycle
 

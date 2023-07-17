@@ -28,7 +28,6 @@ class RegisterViewController: UIViewController {
         title = "Register"
         let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = titleTextAttributes
-        //emailTextField.delegate = self
         setupUI()
     }
     
@@ -93,9 +92,4 @@ class RegisterViewController: UIViewController {
     }
 }
 
-//    //MARK: - UITextField Delegate
-//
-//    extension RegisterViewController: UITextFieldDelegate {
-//
-//    }
 

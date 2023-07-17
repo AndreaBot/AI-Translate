@@ -9,5 +9,7 @@ target 'AI Translate' do
 
 pod 'FirebaseAuth'
 pod 'FirebaseFirestore'
+pod 'IQKeyboardManagerSwift'
+
 
 end
