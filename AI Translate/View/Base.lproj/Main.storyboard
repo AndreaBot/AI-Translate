@@ -132,11 +132,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQY-9u-f3z" userLabel="Email Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Nl-FRz">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-Nl-FRz" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="25.999999999999996" width="363" height="40.666666666666657"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                             </textField>
@@ -148,13 +149,14 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMK-l6-N7h" userLabel="Password Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6p4-Xm-ZNl">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="6p4-Xm-ZNl" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="25.999999999999996" width="363" height="40.666666666666657"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -164,13 +166,14 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ee-jV-qg1">
                                                 <rect key="frame" x="0.0" y="0.0" width="363" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-qQ-ehN">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your password" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gdd-qQ-ehN" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="26.000000000000053" width="363" height="40.666666666666657"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="new-password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="new-password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -209,32 +212,15 @@
                                     <constraint firstAttribute="height" constant="90" id="ZAg-Oj-oNZ"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AI-CM-yuT">
-                                <rect key="frame" x="179" y="586" width="35" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="KCi-vI-UFb"/>
-                                    <constraint firstAttribute="width" constant="35" id="tYZ-0M-x8F"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="eye.slash" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
-                                </state>
-                                <connections>
-                                    <action selector="showPasswordsPressed:" destination="Jaw-DI-3kP" eventType="touchUpInside" id="pa1-pg-Xej"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jvN-39-hbh"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1AI-CM-yuT" firstAttribute="centerX" secondItem="tPU-gc-H55" secondAttribute="centerX" id="898-iL-Kqm"/>
                             <constraint firstItem="jvN-39-hbh" firstAttribute="trailing" secondItem="Tc7-Wz-LLS" secondAttribute="trailing" constant="15" id="8sc-Yf-dSZ"/>
                             <constraint firstItem="a3j-xr-xze" firstAttribute="leading" secondItem="jvN-39-hbh" secondAttribute="leading" constant="15" id="GDR-B2-HAG"/>
                             <constraint firstItem="jvN-39-hbh" firstAttribute="bottom" secondItem="Tc7-Wz-LLS" secondAttribute="bottom" constant="20" id="Gcn-80-QV4"/>
                             <constraint firstItem="Tc7-Wz-LLS" firstAttribute="leading" secondItem="jvN-39-hbh" secondAttribute="leading" constant="15" id="LNZ-1k-qzo"/>
                             <constraint firstItem="a3j-xr-xze" firstAttribute="centerY" secondItem="tPU-gc-H55" secondAttribute="centerY" id="SOu-tt-TvG"/>
-                            <constraint firstItem="1AI-CM-yuT" firstAttribute="top" secondItem="a3j-xr-xze" secondAttribute="bottom" constant="30" id="UIX-Ht-oxR"/>
                             <constraint firstItem="jvN-39-hbh" firstAttribute="trailing" secondItem="a3j-xr-xze" secondAttribute="trailing" constant="15" id="xgd-ZM-9F5"/>
                         </constraints>
                     </view>
@@ -247,7 +233,6 @@
                         <outlet property="registerButton" destination="fTm-UP-Bi4" id="3L2-u1-mty"/>
                         <outlet property="repeatPasswordLabel" destination="1Ee-jV-qg1" id="ykI-zb-ZIQ"/>
                         <outlet property="repeatPasswordTextField" destination="Gdd-qQ-ehN" id="rrg-M6-lxV"/>
-                        <outlet property="showPasswordsButton" destination="1AI-CM-yuT" id="KFe-Uk-ttG"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="registerSuccess" id="BEK-Om-WlE"/>
                     </connections>
                 </viewController>
@@ -275,11 +260,12 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ec-2E-RTL" userLabel="Email Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="363" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Andrea@1.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-63-sXn">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Andrea@1.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7Q-63-sXn" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="23" width="363" height="34"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -291,13 +277,14 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sl-gt-9Z5" userLabel="Password Label">
                                                         <rect key="frame" x="0.0" y="0.0" width="363" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k94-C7-64I">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k94-C7-64I" customClass="CustomUITextField" customModule="AI_Translate" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="23" width="363" height="34"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -803,14 +790,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0Nd-9E-7UK"/>
-        <segue reference="21e-I8-GTY"/>
+        <segue reference="OrG-qT-MRb"/>
+        <segue reference="6a9-85-k7I"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AITranslateBackgroud" width="810" height="1440"/>
         <image name="AT-home" width="375" height="375"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="eye.slash" catalog="system" width="128" height="84"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
         <image name="trash" catalog="system" width="117" height="128"/>

@@ -14,11 +14,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: CustomUITextField!
+    @IBOutlet weak var passwordTextField: CustomUITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    let showPasswordButton = UIButton()
+    let showPasswordButton = CustomUIButton()
     
     let blueColor = CGColor(red: 0, green: 0.4, blue: 1, alpha: 1)
     
@@ -32,31 +32,11 @@ class LoginViewController: UIViewController {
     
     func setupUI() {
 
-        showPasswordButton.frame = CGRect(x: 0, y: 5, width: 30, height: 30)
-        showPasswordButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        showPasswordButton.tintColor = .black
         showPasswordButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
         
         let customRightView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 40))
         customRightView.addSubview(showPasswordButton)
-    
-        emailLabel.textColor = .black
-        passwordLabel.textColor = .black
-        
-        emailTextField.textColor = .black
-        emailTextField.borderStyle = .roundedRect
-        emailTextField.backgroundColor = .white
-        emailTextField.layer.cornerRadius = 7
-        emailTextField.layer.borderColor = blueColor
-        emailTextField.layer.borderWidth = 2
-        
-        passwordTextField.textColor = .black
-        passwordTextField.borderStyle = .roundedRect
-        passwordTextField.backgroundColor = .white
-        passwordTextField.layer.cornerRadius = 7
-        passwordTextField.layer.borderColor = blueColor
-        passwordTextField.layer.borderWidth = 2
-        passwordTextField.isSecureTextEntry = true
+
         passwordTextField.rightView = customRightView
         passwordTextField.rightViewMode = .always
 

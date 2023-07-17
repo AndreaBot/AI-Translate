@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6253B4B72A5E041300E2D9BB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4B62A5E041300E2D9BB /* MenuViewController.swift */; };
 		6253B4BB2A64834B00E2D9BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4BA2A64834B00E2D9BB /* HomeViewController.swift */; };
+		6253B4BE2A65AAE200E2D9BB /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4BD2A65AAE200E2D9BB /* CustomUIButton.swift */; };
+		6253B4C02A65B88000E2D9BB /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6253B4BF2A65B88000E2D9BB /* CustomUITextField.swift */; };
 		626FA7232A14081A00C0F9AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7222A14081A00C0F9AF /* AppDelegate.swift */; };
 		626FA7252A14081A00C0F9AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7242A14081A00C0F9AF /* SceneDelegate.swift */; };
 		626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626FA7262A14081A00C0F9AF /* TranslatorViewController.swift */; };
@@ -38,6 +40,8 @@
 		3B580202C589E2A2AFEF74E0 /* Pods_AI_Translate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AI_Translate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253B4B62A5E041300E2D9BB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6253B4BA2A64834B00E2D9BB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6253B4BD2A65AAE200E2D9BB /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		6253B4BF2A65B88000E2D9BB /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		626FA71F2A14081A00C0F9AF /* AI Translate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Translate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		626FA7222A14081A00C0F9AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		626FA7242A14081A00C0F9AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				62B783A12A1D699600BB9870 /* ReadData.swift */,
 				62C24E5E2A4E2F4500A1B334 /* Translation.swift */,
 				62C24E622A4E347900A1B334 /* TranslationCell.swift */,
+				6253B4BD2A65AAE200E2D9BB /* CustomUIButton.swift */,
+				6253B4BF2A65B88000E2D9BB /* CustomUITextField.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,9 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C24E572A4CC6A500A1B334 /* RegisterViewController.swift in Sources */,
+				6253B4BE2A65AAE200E2D9BB /* CustomUIButton.swift in Sources */,
 				62C24E5D2A4E2EC600A1B334 /* SavedTranslationsViewController.swift in Sources */,
 				62C24E6D2A58A87B00A1B334 /* DetailedViewController.swift in Sources */,
 				6253B4BB2A64834B00E2D9BB /* HomeViewController.swift in Sources */,
+				6253B4C02A65B88000E2D9BB /* CustomUITextField.swift in Sources */,
 				626FA7272A14081A00C0F9AF /* TranslatorViewController.swift in Sources */,
 				626FA7372A14083100C0F9AF /* TranslationData.swift in Sources */,
 				62B783A22A1D699600BB9870 /* ReadData.swift in Sources */,
